@@ -37,63 +37,63 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
 1. Clone este repositorio y configure las variables de entorno de nuestro ambiente. Para ello, ubíquese en la carpeta clonada del repositorio y coloque: 
 
-* Linux o OSX: 
-```export PATH=$PWD/bin:$PATH```
-<br />
+   * Linux o OSX: 
+   ```export PATH=$PWD/bin:$PATH```
+   <br />
 
-* Windows - PowerShell:
-```powershell
-$path = [Environment]::GetEnvironmentVariable('PATH', 'User')
-$ruta = $PWD
-$newpath = $path + $ruta +'\bin'
-[Environment]::SetEnvironmentVariable("PATH", $newpath, 'User')
-```
-<br />
+   * Windows - PowerShell:
+   ```powershell
+   $path = [Environment]::GetEnvironmentVariable('PATH', 'User')
+   $ruta = $PWD
+   $newpath = $path + $ruta +'\bin'
+   [Environment]::SetEnvironmentVariable("PATH", $newpath, 'User')
+   ```
+   <br />
 
 2. Configuración del Cluster IKS.
-* Inicie sesión en *IBM Cloud* con el comando:
-```
-ibmcloud login --sso
-```
-<br />
+   * Inicie sesión en *IBM Cloud* con el comando:
+   ```
+   ibmcloud login --sso
+   ```
+   <br />
 
-* Seleccione la cuenta en donde se encuentra su clúster de Kubernetes.
-<br />
+   * Seleccione la cuenta en donde se encuentra su clúster de Kubernetes.
+   <br />
 
-* Una vez ha iniciado sesión, configure el grupo de recursos y la región que está utilizando su clúster de Kubernetes. Para ello utilice el siguiente comando:
-```
-ibmcloud target -r <REGION> -g <GRUPO_RECURSOS>
-```
->**Nota**: Reemplace \<REGION> y <GRUPO_RECURSOS> con su información.
-<br />
+   * Una vez ha iniciado sesión, configure el grupo de recursos y la región que está utilizando su clúster de Kubernetes. Para ello utilice el siguiente comando:
+   ```
+   ibmcloud target -r <REGION> -g <GRUPO_RECURSOS>
+   ```
+   >**Nota**: Reemplace \<REGION> y <GRUPO_RECURSOS> con su información.
+   <br />
 
-* Obtenga la lista de clústers de Kubernetes que hay en la cuenta establecida en el ítem 2:
-```
-ibmcloud cs clusters
-```
-<br />
+   * Obtenga la lista de clústers de Kubernetes que hay en la cuenta establecida en el ítem 2:
+   ```
+   ibmcloud cs clusters
+   ```
+   <br />
 
-* Verifique el nombre del clúster (```\<cluster_name>```) en el que va a trabajar y habilite el comando ```kubectl``` de la siguiente manera:
-```
-ibmcloud ks cluster config --cluster <cluster_name>
-```
-<br />
+   * Verifique el nombre del clúster (```\<cluster_name>```) en el que va a trabajar y habilite el comando ```kubectl``` de la siguiente manera:
+   ```
+   ibmcloud ks cluster config --cluster <cluster_name>
+   ```
+   <br />
 
 3. Instalar Istio en nuestro clúster
 
-Para efectos de esta demo definimos el perfil demo incluido en el repositorio. Usando el comando `istioctl install --set profile=demo` se instalará y configurará Istio en el clúster.
+   Para efectos de esta demo definimos el perfil demo incluido en el repositorio. Usando el comando `istioctl install --set profile=demo` se instalará y configurará Istio en el clúster.
 
-<p align=center><img src=".github/istioctl-install.png"></p>
-<br />
+   <p align=center><img src=".github/istioctl-install.png"></p>
+   <br />
 
-4. Habilite la inyección automática de Istio al Envoy Sidecar del clúster
+   4. Habilite la inyección automática de Istio al Envoy Sidecar del clúster
 
-Esto se realiza para un namespace determinado, en este caso use el namespace por defecto (```default```). Coloque el comando:
+   Esto se realiza para un namespace determinado, en este caso use el namespace por defecto (```default```). Coloque el comando:
 
-`kubectl label namespace default istio-injection=enabled`
+   `kubectl label namespace default istio-injection=enabled`
 
-<p align=center><img src=".github/istioctl-injection.png"></p>
-<br />
+   <p align=center><img src=".github/istioctl-injection.png"></p>
+   <br />
 
 ### Despliegue de la aplicación
 
