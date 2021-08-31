@@ -16,7 +16,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 4. [Dashboard Kiali](#Dashboard-Kiali-computer)
 5. [Captura de datos en Kiali](#Captura-de-datos-en-Kiali-clipboard)
 6. [Despliegue de servicio de base de datos MongoDB](#Despliegue-de-servicio-de-base-de-datos-MongoDB-books)
-7. [Definición de políticas de acceso a nuestra base de datos](#Definición-de-políticas-de-acceso-a-nuestra-base-de-datos-closed_lock_with_key)
+7. [Definición de políticas de acceso a la base de datos](#Definición-de-políticas-de-acceso-a-la-base-de-datos-closed_lock_with_key)
 8. [Referencias](#Referencias-mag)
 9. [Autores](#Autores-black_nib)
 <br />
@@ -297,7 +297,7 @@ En la pestaña Display ➡ sección Show ➡ seleccione Compress Hidden, Node Na
 
 
 
-## Definición de políticas de acceso a nuestra base de datos :closed_lock_with_key:
+## Definición de políticas de acceso a la base de datos :closed_lock_with_key:
 Es necesario definir nuevas políticas de acceso por medio del enrutamiento del Ingress Gateway a la nueva versión del servicio ratings y al servicio mongodb. Para ello utilice los comandos:
 
 ```bash
