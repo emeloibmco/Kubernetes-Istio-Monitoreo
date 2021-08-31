@@ -10,7 +10,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
 ## 📑 Tabla de contenido
 
-1. [Requisitos](#-requisitos)
+1. [Requisitos](#Requisitos)
 2. [Hands On!](#-hands-on)
 3. [Configuración de Istio en IKS](#Configuración-de-Istio-en-IKS)
 4. [Despliegue de la aplicación](#Despliegue-de-la-aplicación)
@@ -19,7 +19,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 7. [Referencias y documentación útil](#Referencias-y-documentación-útil)
 <br />
 
-## 📑 Requisitos
+## 📰 Requisitos
 
 - Tener un servicio **[Kubernetes Cluster (IKS)](https://cloud.ibm.com/kubernetes/clusters)** disponible en la cuenta IBM Cloud.
 
