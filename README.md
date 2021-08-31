@@ -219,7 +219,7 @@ Seleccione en el panel izquierdo ```Graph``` y filtre por el namespace, en este 
 
 Para generar una cantidad considerable de solicitudes, y así poder visualizar el tráfico en el Service Mesh, usar el comando:
 
-**Windows PowerShell:**
+### Windows PowerShell:
 
 * Clúster en infraestructura clásica:
 ```powershell
@@ -245,7 +245,7 @@ do
 while ($i -le 10)
 ```
 
-**Linux & OSX:**
+### Linux & OSX:
 
 * Clúster en infraestructura clásica:
 
@@ -263,7 +263,9 @@ done
 ```
 <br />
 
-En el panel lateral izquierdo seleccione Graph. En la pestaña Display, sección Show Edge Labels, seleccionamos Request Percentage y en la sección show Traffic Animation.
+En el panel lateral izquierdo seleccione Graph. 
+En la pestaña Display ➡ sección Show Edge Labels ➡ seleccione Request Percentage.
+En la pestaña Display ➡ sección Show ➡ seleccione Compress Hidden, Node Names, Service Nodes y Traffic Animation.
 
 <p align=center><img src=".github/kiali-graph.png"></p>
 <br />
@@ -272,19 +274,22 @@ En el panel lateral izquierdo seleccione Graph. En la pestaña Display, sección
 
 ## 📚 Despliegue de servicio de base de datos MongoDB
 
-Ejecutamos el comando para desplegar el servicio:
+1. Ejecute el comando para desplegar el servicio:
 
-`kubectl apply -f samples/bookinfo/platform/kube/bookinfo-db.yaml`
+   `kubectl apply -f samples/bookinfo/platform/kube/bookinfo-db.yaml`
+   <br />
 
-Comprobamos que se haya creado un nuevo servicio de mongodb, con el comando:
+2. Compruebe que se haya creado un nuevo servicio de mongodb, con el comando:
 
-`kubectl get services`
+   `kubectl get services`
+   <br />
 
-Despluegamos una nueva version del servicio de ratings que consume nuestro servicio de mongodb
+3. Despliegue una nueva versión del servicio de ratings que consume el servicio de mongodb, para ello coloque el comando:
 
 `kubectl apply -f samples/bookinfo/platform/kube/bookinfo-ratings-v2.yaml`
+<br />
 
-Para poder visualizar en Kiali las versiones, seleccionamos la drop list que se encuentra al lado derecho del Namespace y en Versioned app graph:
+4. Para poder visualizar en Kiali las versiones, de click la lista que se encuentra al lado derecho del Namespace y seleccione la opción Versioned app graph:
 
 <p align=center><img src=".github/kiali-mongo.png"></p>
 <br />
@@ -292,17 +297,17 @@ Para poder visualizar en Kiali las versiones, seleccionamos la drop list que se 
 
 
 ### 🔐 Definición de políticas de acceso a nuestra base de datos
-
-Pero si vamos a la página nos mostrará un error en la sección de reviews. Tenemos que definir nuevas políticas de acceso por medio del enrutamiento del Ingress Gateway, a la nueva versión del servicio ratings y al servicio mongodb
+Es necesario definir nuevas políticas de acceso por medio del enrutamiento del Ingress Gateway a la nueva versión del servicio ratings y al servicio mongodb. Para ello utilice los comandos:
 
 ```bash
 kubectl apply -f samples/bookinfo/networking/destination-rule-all-mtls.yaml
 kubectl apply -f samples/bookinfo/networking/virtual-service-ratings-db.yaml
 ```
+<br />
 
-Tenemos que volver a realizar peticiones a nuestra página web con el fin de recibir tráfico en Kiali [Captura de datos en Kiali](#captura-de-datos-en-kiali).
+Solicite nuevamente peticiones a la aplicación con el fin de recibir tráfico en Kiali. Utilice los comandos indicados en [Captura de datos en Kiali](#captura-de-datos-en-kiali).
 
-Finalmente Kiali mostrará tráfico entrante a nuestro servicio de mongodb.
+Finalmente, Kiali mostrará tráfico entrante al servicio de mongodb.
 
 <p align=center><img src=".github/kiali-final.png"></p>
 <br />
