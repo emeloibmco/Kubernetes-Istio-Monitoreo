@@ -95,7 +95,8 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
    <p align=center><img src=".github/istioctl-injection.png"></p>
    <br />
 
-### Despliegue de la aplicación
+
+### 🚀 Despliegue de la aplicación
 
 1. Aplicación bookinfo.
 
@@ -199,7 +200,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
 
 
-## Dashboard Kiali
+## 💻 Dashboard Kiali
 
 Istio viene por defecto con Kiali. Para visualizar el Service Mesh vaya a la carpeta ```bin``` coloque el comando:
 
@@ -210,7 +211,9 @@ Para acceder en las credenciales de usuario y contraseña coloque **admin**.
 <p align=center><img src=".github/istioctl-login.png"></p>
 <br />
 
-### Captura de datos en Kiali
+
+
+### 📋 Captura de datos en Kiali
 
 Seleccionamos en el panel izquierdo Graph y filtramos por nuestro namespace, en este caso Default, sin embargo, no hemos generado solicitudes a nuestra aplicación y por eso nos mostrará **Empty Graph**
 
@@ -242,7 +245,9 @@ En el panel lateral izquierdo seleccionamos Graph, en la pestaña Display, secci
 <p align=center><img src=".github/kiali-graph.png"></p>
 <br />
 
-## Despliegue de servicio de base de datos MongoDB
+
+
+## 📚 Despliegue de servicio de base de datos MongoDB
 
 Ejecutamos el comando para desplegar el servicio:
 
@@ -261,7 +266,9 @@ Para poder visualizar en Kiali las versiones, seleccionamos la drop list que se 
 <p align=center><img src=".github/kiali-mongo.png"></p>
 <br />
 
-### Definición de políticas de acceso a nuestra base de datos
+
+
+### 🔐 Definición de políticas de acceso a nuestra base de datos
 
 Pero si vamos a la página nos mostrará un error en la sección de reviews. Tenemos que definir nuevas políticas de acceso por medio del enrutamiento del Ingress Gateway, a la nueva versión del servicio ratings y al servicio mongodb
 
@@ -277,7 +284,8 @@ Finalmente Kiali mostrará tráfico entrante a nuestro servicio de mongodb.
 <p align=center><img src=".github/kiali-final.png"></p>
 <br />
 
-## Referencias y documentación útil
+
+## 📍 Referencias y documentación útil
 
 - [Documentación Kiali](https://istio.io/docs/tasks/observability/kiali/)
 - [Documentación Inicial Istio](https://istio.io/docs/setup/getting-started/#install)
@@ -289,5 +297,5 @@ Finalmente Kiali mostrará tráfico entrante a nuestro servicio de mongodb.
 - [Autorización de servicios TCP Istio](https://archive.istio.io/v1.3/docs/tasks/security/authz-tcp/)
 <br />
 
-## Autores ✒
+## ✒ Autores
 Equipo *IBM Cloud Tech Sales Colombia*.
