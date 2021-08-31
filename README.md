@@ -36,7 +36,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
 ## Configuración de Istio en IKS :gear:
 
-1. Clone este repositorio y configure las variables de entorno de nuestro ambiente. Para ello, ubíquese en la carpeta clonada del repositorio y coloque: 
+1. Clone este repositorio y configure las variables de entorno del ambiente. Para ello, ubíquese en la carpeta clonada del repositorio y coloque: 
 
    * Linux o OSX: 
    ```export PATH=$PWD/bin:$PATH```
