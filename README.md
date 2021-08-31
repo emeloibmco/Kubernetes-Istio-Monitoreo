@@ -35,9 +35,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
 ### Configuración de Istio en IKS
 
-**Paso 1:** Clonar este repositorio y configurar las variables de entorno de nuestro ambiente.
-
-Nos ubicamos en la carpeta del repositorio y colocamos: 
+1. Clonar este repositorio y configurar las variables de entorno de nuestro ambiente. Para ello, ubíquese en la carpeta clonada del repositorio y coloque: 
 
 * Linux o OSX: 
 ```export PATH=$PWD/bin:$PATH```
@@ -52,14 +50,36 @@ $newpath = $path + $ruta +'\bin'
 ```
 <br />
 
-**Paso 2:** Configuración de nuestro Cluster IKS
-
-Recuerde llenar el campo <nombre_cluster> con el nombre de su cluster
-
-`ibmcloud cs cluster config --cluster <nombre_cluster>`
+2. Configuración del Cluster IKS.
+* Inicie sesión en *IBM Cloud* con el comando:
+```
+ibmcloud login --sso
+```
 <br />
 
-**Paso 3:** Instalar Istio en nuestro cluster
+* Seleccione la cuenta en donde se encuentra su clúster de Kubernetes.
+<br />
+
+* Una vez ha iniciado sesión, configure el grupo de recursos y la región que está utilizando su clúster de Kubernetes. Para ello utilice el siguiente comando:
+```
+ibmcloud target -r <REGION> -g <GRUPO_RECURSOS>
+```
+>**Nota**: Reemplace \<REGION> y <GRUPO_RECURSOS> con su información.
+<br />
+
+* Obtenga la lista de clústers de Kubernetes que hay en la cuenta establecida en el ítem 2:
+```
+ibmcloud cs clusters
+```
+<br />
+
+* Verifique el nombre del clúster (```\<cluster_name>```) en el que va a desplegar la imagen y habilite el comando ```kubectl``` de la siguiente manera:
+```
+ibmcloud ks cluster config --cluster <cluster_name>
+```
+<br />
+
+3. Instalar Istio en nuestro cluster
 
 Para efectos de esta demo definimos el perfil demo incluido en el repositorio
 
