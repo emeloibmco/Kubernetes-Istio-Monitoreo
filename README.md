@@ -222,7 +222,7 @@ Para generar una cantidad considerable de solicitudes, y así poder visualizar e
 **Windows PowerShell:**
 
 * Clúster en infraestructura clásica:
-```
+```powershell
 $i = 1
 do
 {
@@ -234,7 +234,7 @@ while ($i -le 10)
 ```
 
 * Clúster en VPC:
-```
+```powershell
 $i = 1
 do
 {
@@ -263,7 +263,7 @@ done
 ```
 <br />
 
-En el panel lateral izquierdo seleccionamos Graph, en la pestaña Display, sección Show Edge Labels, seleccionamos Request Percentage y en la sección show Traffic Animation.
+En el panel lateral izquierdo seleccione Graph. En la pestaña Display, sección Show Edge Labels, seleccionamos Request Percentage y en la sección show Traffic Animation.
 
 <p align=center><img src=".github/kiali-graph.png"></p>
 <br />
@@ -311,6 +311,7 @@ Finalmente Kiali mostrará tráfico entrante a nuestro servicio de mongodb.
 ## 📍 Referencias y documentación útil
 
 - [Documentación Kiali](https://istio.io/docs/tasks/observability/kiali/)
+
 - [Documentación Inicial Istio](https://istio.io/docs/setup/getting-started/#install)
 
 - [IBM Cloud Docs Istio](https://cloud.ibm.com/docs/containers?topic=containers-istio-qs)
@@ -318,6 +319,8 @@ Finalmente Kiali mostrará tráfico entrante a nuestro servicio de mongodb.
 - [Manejo de Políticas con Istio](https://istio.io/docs/tasks/policy-enforcement/denial-and-list/)
 
 - [Autorización de servicios TCP Istio](https://archive.istio.io/v1.3/docs/tasks/security/authz-tcp/)
+
+- [Iniciación a Istio](https://cloud.ibm.com/docs/containers?topic=containers-istio-qs)
 <br />
 
 ## ✒ Autores
