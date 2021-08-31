@@ -5,6 +5,7 @@
 Esta demo es un acercamiento al concepto de Service Mesh en un Cluster de K8s provisto en IBM Cloud usando Istio y el Dashboard Kiali.
 
 Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas entre servicios, realizar transiciones ágiles entre versiones de un servicio y visualizar nuestro Service Mesh con Kiali.
+
 <br />
 
 ## 📑 Tabla de contenido
@@ -22,7 +23,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
 - Tener un servicio **[Kubernetes Cluster (IKS)](https://cloud.ibm.com/kubernetes/clusters)** disponible en la cuenta IBM Cloud.
 
-  **Importante:** Debe ser un Cluster **pago** en plan **Standard**
+  **Importante:** Debe ser un Cluster **pago** en plan **Standard**, puede ser en infraestructura clásica o *VPC*.
 
 - :cloud: [IBM Cloud CLI](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started&locale=en)
 - :whale: [Docker](https://www.docker.com/products/docker-desktop)
@@ -38,10 +39,11 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
 Nos ubicamos en la carpeta del repositorio y colocamos: 
 
-Linux o OSX: `export PATH=$PWD/bin:$PATH`
+* Linux o OSX: 
+```export PATH=$PWD/bin:$PATH```
+<br />
 
-Windows: Escribimos el siguiente comando en PowerShell
-
+* Windows - PowerShell:
 ```powershell
 $path = [Environment]::GetEnvironmentVariable('PATH', 'User')
 $ruta = $PWD
