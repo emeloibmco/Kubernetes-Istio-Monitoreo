@@ -15,8 +15,9 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 3. [Configuración de Istio en IKS](#-Configuración-de-Istio-en-IKS)
 4. [Despliegue de la aplicación](#-Despliegue-de-la-aplicación)
 5. [Dashboard Kiali](#-Dashboard-Kiali)
-6. [Despliegue de servicio de base de datos MongoDB](#-Despliegue-de-servicio-de-base-de-datos-MongoDB)
-7. [Referencias y documentación útil](#-Referencias-y-documentación-útil)
+6. [Captura de datos en Kiali](#-Captura-de-datos-en-Kiali)
+7. [Despliegue de servicio de base de datos MongoDB](#-Despliegue-de-servicio-de-base-de-datos-MongoDB)
+8. [Referencias y documentación útil](#-Referencias-y-documentación-útil)
 <br />
 
 ## 📰 Requisitos
@@ -305,7 +306,7 @@ kubectl apply -f samples/bookinfo/networking/virtual-service-ratings-db.yaml
 ```
 <br />
 
-Solicite nuevamente peticiones a la aplicación con el fin de recibir tráfico en Kiali. Utilice los comandos indicados en [Captura de datos en Kiali](#captura-de-datos-en-kiali).
+Solicite nuevamente peticiones a la aplicación con el fin de recibir tráfico en Kiali. Utilice los comandos indicados en [Captura de datos en Kiali](#-Captura-de-datos-en-Kiali).
 
 Finalmente, Kiali mostrará tráfico entrante al servicio de mongodb.
 
