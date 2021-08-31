@@ -68,7 +68,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
    >**Nota**: Reemplace \<REGION> y <GRUPO_RECURSOS> con su información.
    <br />
 
-   * Obtenga la lista de clústers de Kubernetes que hay en la cuenta establecida en el ítem 2:
+   * Obtenga la lista de clústers de Kubernetes que hay en la cuenta establecida:
    ```
    ibmcloud cs clusters
    ```
@@ -80,9 +80,9 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
    ```
    <br />
 
-3. Instalar Istio en nuestro clúster
+3. Instalar Istio en el clúster
 
-   Para efectos de esta demo definimos el perfil demo incluido en el repositorio. Usando el comando `istioctl install --set profile=demo` se instalará y configurará Istio en el clúster.
+   Para efectos de esta demo se define el perfil demo incluido en el repositorio. Usando el comando `istioctl install --set profile=demo` se instalará y configurará Istio en el clúster.
 
    <p align=center><img src=".github/istioctl-install.png"></p>
    <br />
@@ -101,27 +101,27 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
 1. Aplicación bookinfo.
 
-   Vamos a desplegar la aplicación de ejemplo Bookinfo que está en la carpeta ```samples``` del repositorio, usando el comando:
+   * El primer paso consiste en desplegar la aplicación de ejemplo Bookinfo que está en la carpeta ```samples``` del repositorio, usando el comando:
 
-   `kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml`
+     `kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml`
 
-   Este comando creará todo el despliegue en el clúster, es decir, Deployment, Service, Pods y réplicas.
+     Este comando creará todo el despliegue en el clúster, es decir, Deployment, Service, Pods y réplicas.
 
-   Visualice los servicios implementados en el clúster con el comando:
+   * Visualice los servicios implementados en el clúster con el comando:
 
-   `kubectl get services`
+     `kubectl get services`
 
-   <p align=center><img src=".github/istioctl-services.png"></p>
-   <br />
+     <p align=center><img src=".github/istioctl-services.png"></p>
+     <br />
 
-   Visualice los pods implementados en el clúster con el comando:
+   * Visualice los pods implementados en el clúster con el comando:
 
-   `kubectl get pods`
+     `kubectl get pods`
 
-   <p align=center><img src=".github/istioctl-pods.png"></p>
-   <br />
+     <p align=center><img src=".github/istioctl-pods.png"></p>
+     <br />
 
-2. El paso siguiente consiste en exponer al exterior el clpuster y definir las políticas de acceso. Para ello, se debe configurar la aplicación para aceptar trafico externo, agregando el Istio Ingress Gateway, que se encargará de gestionar las rutas de nuestro Service Mesh.
+2. El paso siguiente consiste en exponer al exterior el clúster y definir las políticas de acceso. Para ello, se debe configurar la aplicación para aceptar trafico externo, agregando el Istio Ingress Gateway, que se encargará de gestionar las rutas de nuestro Service Mesh.
 
    Por defecto, el ingress gateway se encarga de bloquear todas las solicitudes, permitiendo únicamente las definidas en las políticas de acceso. Utilice el comando:
 
@@ -130,7 +130,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
    <p align=center><img src=".github/istioctl-ingress.png"></p>
    <br />
 
-3. Defina tambien la configuración de enrutamiento, donde se especifica a que servicios se puede acceder desde el exterior, aplicando el archivo destination-rule-all.yaml mediante el comando:
+3. Defina la configuración de enrutamiento donde se especifica a que servicios se puede acceder desde el exterior. Para ello utilice el archivo destination-rule-all.yaml mediante el comando:
 
    `kubectl apply -f samples/bookinfo/networking/destination-rule-all.yaml`
 
@@ -168,11 +168,12 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
    `curl -o /dev/null -s -w "%{http_code}\n" http://169.63.6.234/productpage`
 
-   La salida debe ser 200
-
+   La salida debe ser 200.
+   
    <p align=center><img src=".github/istioctl-status.png">
+   <br />
 
-   Tambien por el navegador accediendo a la dirección `http://169.64.6.235/productpage`
+   También puede realizar la prueba por el navegador accediendo a la dirección `http://169.64.6.235/productpage`
 
    <p align=center><img src=".github/istioctl-web.png"></p>
    <br />
@@ -203,7 +204,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
 ## Dashboard Kiali :computer:
 
-Istio viene por defecto con Kiali. Para visualizar el Service Mesh vaya a la carpeta ```bin``` coloque el comando:
+Istio viene por defecto con Kiali. Para visualizar el Service Mesh vaya a la carpeta ```bin``` (ya que en esta carpeta contiene el ejecutable de Kiali) con ```cd bin``` y coloque el comando:
 
 `.\istioctl dashboard kiali` o `istioctl dashboard kiali`
 
@@ -218,7 +219,7 @@ Para acceder en las credenciales de usuario y contraseña coloque **admin**.
 
 Seleccione en el panel izquierdo ```Graph``` y filtre por el namespace, en este caso Default. Como no se han generado solicitudes a la aplicación y el resultado de la gráfica será:  **Empty Graph**.
 
-Para generar una cantidad considerable de solicitudes, y así poder visualizar el tráfico en el Service Mesh, usar el comando:
+Para generar una cantidad considerable de solicitudes y así poder visualizar el tráfico en el Service Mesh, en una nueva ventana use el comando:
 
 ### Windows PowerShell:
 
@@ -264,9 +265,10 @@ done
 ```
 <br />
 
-En el panel lateral izquierdo seleccione Graph. 
-En la pestaña Display ➡ sección Show Edge Labels ➡ seleccione Request Percentage.
-En la pestaña Display ➡ sección Show ➡ seleccione Compress Hidden, Node Names, Service Nodes y Traffic Animation.
+Revise nuevamente la ventana que muestra Kiali y asegúrese de tener seleccionado:
+* En el panel lateral izquierdo ➡ Graph. 
+* En la pestaña Display ➡ sección Show Edge Labels ➡ Request Percentage.
+* En la pestaña Display ➡ sección Show ➡ seleccione Compress Hidden, Node Names, Service Nodes y Traffic Animation.
 
 <p align=center><img src=".github/kiali-graph.png"></p>
 <br />
@@ -275,20 +277,20 @@ En la pestaña Display ➡ sección Show ➡ seleccione Compress Hidden, Node Na
 
 ## Despliegue de servicio de base de datos MongoDB :books:
 
-1. Ejecute el comando para desplegar el servicio:
+1. Ejecute el comando para desplegar el servicio (salga de la carpeta ```bin```con ```cd ..```):
 
    `kubectl apply -f samples/bookinfo/platform/kube/bookinfo-db.yaml`
    <br />
 
-2. Compruebe que se haya creado un nuevo servicio de mongodb, con el comando:
+2. Compruebe que se se ha creado un nuevo servicio de mongodb, con el comando:
 
    `kubectl get services`
    <br />
 
-3. Despliegue una nueva versión del servicio de ratings que consume el servicio de mongodb, para ello coloque el comando:
+3. Despliegue una nueva versión del servicio de ratings que consume el servicio de mongodb, coloque el comando:
 
-`kubectl apply -f samples/bookinfo/platform/kube/bookinfo-ratings-v2.yaml`
-<br />
+   `kubectl apply -f samples/bookinfo/platform/kube/bookinfo-ratings-v2.yaml`
+   <br />
 
 4. Para poder visualizar en Kiali las versiones, de click la lista que se encuentra al lado derecho del Namespace y seleccione la opción Versioned app graph:
 
