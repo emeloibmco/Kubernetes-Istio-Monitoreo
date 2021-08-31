@@ -99,99 +99,101 @@ Esto se realiza para un namespace determinado, en este caso use el namespace por
 
 1. Aplicación bookinfo.
 
-Vamos a desplegar la aplicación de ejemplo Bookinfo que está en la carpeta ```samples``` del repositorio, usando el comando:
+   Vamos a desplegar la aplicación de ejemplo Bookinfo que está en la carpeta ```samples``` del repositorio, usando el comando:
 
-`kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml`
+   `kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml`
 
-Este comando creará todo el despliegue en el clúster, es decir, Deployment, Service, Pods y réplicas.
+   Este comando creará todo el despliegue en el clúster, es decir, Deployment, Service, Pods y réplicas.
 
-Visualice los servicios implementados en el clúster con el comando:
+   Visualice los servicios implementados en el clúster con el comando:
 
-`kubectl get services`
+   `kubectl get services`
 
-<p align=center><img src=".github/istioctl-services.png"></p>
-<br />
+   <p align=center><img src=".github/istioctl-services.png"></p>
+   <br />
 
-Visualice los pods implementados en el clúster con el comando:
+   Visualice los pods implementados en el clúster con el comando:
 
-`kubectl get pods`
+   `kubectl get pods`
 
-<p align=center><img src=".github/istioctl-pods.png"></p>
-<br />
+   <p align=center><img src=".github/istioctl-pods.png"></p>
+   <br />
 
 2. El paso siguiente consiste en exponer al exterior el clpuster y definir las políticas de acceso. Para ello, se debe configurar la aplicación para aceptar trafico externo, agregando el Istio Ingress Gateway, que se encargará de gestionar las rutas de nuestro Service Mesh.
 
-Por defecto, el ingress gateway se encarga de bloquear todas las solicitudes, permitiendo únicamente las definidas en las políticas de acceso. Utilice el comando:
+   Por defecto, el ingress gateway se encarga de bloquear todas las solicitudes, permitiendo únicamente las definidas en las políticas de acceso. Utilice el comando:
 
-`kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml`
+   `kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml`
 
-<p align=center><img src=".github/istioctl-ingress.png"></p>
-<br />
+   <p align=center><img src=".github/istioctl-ingress.png"></p>
+   <br />
 
 3. Defina tambien la configuración de enrutamiento, donde se especifica a que servicios se puede acceder desde el exterior, aplicando el archivo destination-rule-all.yaml mediante el comando:
 
-`kubectl apply -f samples/bookinfo/networking/destination-rule-all.yaml`
+   `kubectl apply -f samples/bookinfo/networking/destination-rule-all.yaml`
 
-<p align=center><img src=".github/istioctl-routes.png"></p>
-<br />
+   <p align=center><img src=".github/istioctl-routes.png"></p>
+   <br />
 
 4. Para continuar con el ejercicio y ejecutar la aplicación, utilice los siguientes comandos:
 
-**Clúster de Infraestructura Clásica**
-Si trabaja con un clúster de infraestructura clásica, deberá obtener la dirección ip y el puerto. Para ello siga estos pasos:
+   **Clúster de Infraestructura Clásica**
+   <br />
+   Si trabaja con un clúster de infraestructura clásica, deberá obtener la dirección ip y el puerto. Para ello siga estos pasos:
 
-* Obtener Dirección IP:
+   * Obtener Dirección IP:
 
-`kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}'`
+   `kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}'`
 
-<p align=center><img src=".github/istioctl-ip.png"></p>
-<br />
+   <p align=center><img src=".github/istioctl-ip.png"></p>
+   <br />
 
-* Obtener Puerto:
+   * Obtener Puerto:
 
-Terminal de Linux & OSX
+   Terminal de Linux & OSX
 
-`kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{$.spec.ports[?(@.name=="http2")].nodePort}'`
+   `kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{$.spec.ports[?(@.name=="http2")].nodePort}'`
 
-PowerShell:
+   PowerShell:
 
-`kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{$.spec.ports[?(@.name==\"http2\")].nodePort}'`
+   `kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{$.spec.ports[?(@.name==\"http2\")].nodePort}'`
 
-<p align=center><img src=".github/istioctl-port.png"></p>
-<br />
+   <p align=center><img src=".github/istioctl-port.png"></p>
+   <br />
 
-Ahora verificamos que sea posible acceder mediante el comando:
+   Ahora verificamos que sea posible acceder mediante el comando:
 
-`curl -o /dev/null -s -w "%{http_code}\n" http://169.63.6.234/productpage`
+   `curl -o /dev/null -s -w "%{http_code}\n" http://169.63.6.234/productpage`
 
-La salida debe ser 200
+   La salida debe ser 200
 
-<p align=center><img src=".github/istioctl-status.png">
+   <p align=center><img src=".github/istioctl-status.png">
 
-Tambien por el navegador accediendo a la dirección `http://169.64.6.235/productpage`
+   Tambien por el navegador accediendo a la dirección `http://169.64.6.235/productpage`
 
-<p align=center><img src=".github/istioctl-web.png"></p>
-<br />
+   <p align=center><img src=".github/istioctl-web.png"></p>
+   <br />
 
-**Clúster en VPC**
-Si trabaja con un clúster en VPC, deberá obtener el endpoint. Para ello siga estos pasos:
+   **Clúster en VPC**
+   <br />
+   Si trabaja con un clúster en VPC, deberá obtener el endpoint. Para ello siga estos pasos:
 
-* Obtener endpoint:
+   * Obtener endpoint:
 
-`kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].hostname}''`
-<br />
+   `kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].hostname}''`
+   <br />
 
-Ahora verificamos que sea posible acceder a la aplicación por el navegador accediendo a la dirección con:
-```
-http://<endpoint>/productpage
-```
+   Ahora verificamos que sea posible acceder a la aplicación por el navegador accediendo a la dirección con:
+   ```
+   http://<endpoint>/productpage
+   ```
 
-Ejemplo:
-```
-http://3401ba17-us-south.lb.appdomain.cloud/productpage
-```
+   Ejemplo:
+   ```
+   http://3401ba17-us-south.lb.appdomain.cloud/productpage
+   ```
 
-<br />
+   <br />
 
 
 
