@@ -8,19 +8,20 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
 <br />
 
-## 📑 Tabla de contenido
+## Tabla de contenido 📑
 
-1. [Requisitos](#Requisitos)
-2. [Hands On!](#-hands-on)
-3. [Configuración de Istio en IKS](#-Configuración-de-Istio-en-IKS)
-4. [Despliegue de la aplicación](#-Despliegue-de-la-aplicación)
-5. [Dashboard Kiali](#-Dashboard-Kiali)
-6. [Captura de datos en Kiali](#-Captura-de-datos-en-Kiali)
-7. [Despliegue de servicio de base de datos MongoDB](#-Despliegue-de-servicio-de-base-de-datos-MongoDB)
-8. [Referencias y documentación útil](#-Referencias-y-documentación-útil)
+1. [Requisitos](#Requisitos-newspaper)
+2. [Configuración de Istio en IKS](#Configuración-de-Istio-en-IKS-gear)
+3. [Despliegue de la aplicación](#Despliegue-de-la-aplicación-rocket)
+4. [Dashboard Kiali](#Dashboard-Kiali-computer)
+5. [Captura de datos en Kiali](#Captura-de-datos-en-Kiali-clipboard)
+6. [Despliegue de servicio de base de datos MongoDB](#Despliegue-de-servicio-de-base-de-datos-MongoDB-books)
+7. [Definición de políticas de acceso a nuestra base de datos](#Definición-de-políticas-de-acceso-a-nuestra-base-de-datos-closed_lock_with_key)
+8. [Referencias](#Referencias-mag)
+9. [Autores](#Autores-black_nib)
 <br />
 
-## 📰 Requisitos
+## Requisitos :newspaper:
 
 - Tener un servicio **[Kubernetes Cluster (IKS)](https://cloud.ibm.com/kubernetes/clusters)** disponible en la cuenta IBM Cloud.
 
@@ -32,9 +33,8 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 - Complemento [container-service/kubernetes-service](https://cloud.ibm.com/docs/cli?topic=cli-install-devtools-manually) para ibmcloud CLI. `ibmcloud plugin install container-service/kubernetes-service`
 <br />
 
-## ✋ Hands On!
 
-### ⚙ Configuración de Istio en IKS
+### Configuración de Istio en IKS :gear:
 
 1. Clone este repositorio y configure las variables de entorno de nuestro ambiente. Para ello, ubíquese en la carpeta clonada del repositorio y coloque: 
 
@@ -97,7 +97,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
    <br />
 
 
-### 🚀 Despliegue de la aplicación
+### Despliegue de la aplicación :rocket:
 
 1. Aplicación bookinfo.
 
@@ -201,7 +201,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
 
 
-## 💻 Dashboard Kiali
+## Dashboard Kiali :computer:
 
 Istio viene por defecto con Kiali. Para visualizar el Service Mesh vaya a la carpeta ```bin``` coloque el comando:
 
@@ -214,7 +214,7 @@ Para acceder en las credenciales de usuario y contraseña coloque **admin**.
 
 
 
-### 📋 Captura de datos en Kiali
+### Captura de datos en Kiali :clipboard:
 
 Seleccione en el panel izquierdo ```Graph``` y filtre por el namespace, en este caso Default. Como no se han generado solicitudes a la aplicación y el resultado de la gráfica será:  **Empty Graph**.
 
@@ -273,7 +273,7 @@ En la pestaña Display ➡ sección Show ➡ seleccione Compress Hidden, Node Na
 
 
 
-## 📚 Despliegue de servicio de base de datos MongoDB
+## Despliegue de servicio de base de datos MongoDB :books:
 
 1. Ejecute el comando para desplegar el servicio:
 
@@ -297,7 +297,7 @@ En la pestaña Display ➡ sección Show ➡ seleccione Compress Hidden, Node Na
 
 
 
-### 🔐 Definición de políticas de acceso a nuestra base de datos
+### Definición de políticas de acceso a nuestra base de datos :closed_lock_with_key:
 Es necesario definir nuevas políticas de acceso por medio del enrutamiento del Ingress Gateway a la nueva versión del servicio ratings y al servicio mongodb. Para ello utilice los comandos:
 
 ```bash
@@ -314,7 +314,7 @@ Finalmente, Kiali mostrará tráfico entrante al servicio de mongodb.
 <br />
 
 
-## 📍 Referencias y documentación útil
+## Referencias :mag:
 
 - [Documentación Kiali](https://istio.io/docs/tasks/observability/kiali/)
 
@@ -329,5 +329,5 @@ Finalmente, Kiali mostrará tráfico entrante al servicio de mongodb.
 - [Iniciación a Istio](https://cloud.ibm.com/docs/containers?topic=containers-istio-qs)
 <br />
 
-## ✒ Autores
+## Autores :black_nib:
 Equipo *IBM Cloud Tech Sales Colombia*.
