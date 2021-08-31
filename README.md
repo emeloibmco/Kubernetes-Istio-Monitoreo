@@ -11,11 +11,11 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
 1. [Requisitos](#-requisitos)
 2. [Hands On!](#-hands-on)
-   2.1 [Configuración de Istio en IKS](#Configuración-de-Istio-en-IKS)
-   2.2 [Despliegue de la aplicación](#Despliegue-de-la-aplicación)
-   2.3 [Dashboard Kiali](#Dashboard-Kiali)
-   2.4 [Despliegue de servicio de base de datos MongoDB](#Despliegue-de-servicio-de-base-de-datos-MongoDB)
-3. [Referencias y documentación útil](#Referencias-y-documentación-útil)
+3. [Configuración de Istio en IKS](#Configuración-de-Istio-en-IKS)
+4. [Despliegue de la aplicación](#Despliegue-de-la-aplicación)
+5. [Dashboard Kiali](#Dashboard-Kiali)
+6. [Despliegue de servicio de base de datos MongoDB](#Despliegue-de-servicio-de-base-de-datos-MongoDB)
+7. [Referencias y documentación útil](#Referencias-y-documentación-útil)
 <br />
 
 ## 📑 Requisitos
