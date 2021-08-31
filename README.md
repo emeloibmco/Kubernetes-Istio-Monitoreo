@@ -86,7 +86,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
    <p align=center><img src=".github/istioctl-install.png"></p>
    <br />
 
-   4. Habilite la inyección automática de Istio al Envoy Sidecar del clúster
+4. Habilite la inyección automática de Istio al Envoy Sidecar del clúster
 
    Esto se realiza para un namespace determinado, en este caso use el namespace por defecto (```default```). Coloque el comando:
 
@@ -137,7 +137,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
 4. Para continuar con el ejercicio y ejecutar la aplicación, utilice los siguientes comandos:
 
-   **Clúster de Infraestructura Clásica**
+   **Clúster de Infraestructura Clásica** 
    <br />
    Si trabaja con un clúster de infraestructura clásica, deberá obtener la dirección ip y el puerto. Para ello siga estos pasos:
 
@@ -153,6 +153,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
    Terminal de Linux & OSX
 
    `kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{$.spec.ports[?(@.name=="http2")].nodePort}'`
+   <br />
 
    PowerShell:
 
@@ -161,7 +162,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
    <p align=center><img src=".github/istioctl-port.png"></p>
    <br />
 
-   Ahora verificamos que sea posible acceder mediante el comando:
+   Ahora verifique que sea posible acceder mediante el comando:
 
    `curl -o /dev/null -s -w "%{http_code}\n" http://169.63.6.234/productpage`
 
@@ -174,6 +175,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
    <p align=center><img src=".github/istioctl-web.png"></p>
    <br />
 
+
    **Clúster en VPC**
    <br />
    Si trabaja con un clúster en VPC, deberá obtener el endpoint. Para ello siga estos pasos:
@@ -183,7 +185,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
    `kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].hostname}''`
    <br />
 
-   Ahora verificamos que sea posible acceder a la aplicación por el navegador accediendo a la dirección con:
+   Ahora verifique que sea posible acceder a la aplicación por el navegador accediendo a la dirección con:
    ```
    http://<endpoint>/productpage
    ```
@@ -199,11 +201,11 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
 ## Dashboard Kiali
 
-Istio viene por defecto con Kiali y podemos visualizar el Service Mesh utilizando el comando
+Istio viene por defecto con Kiali. Para visualizar el Service Mesh vaya a la carpeta ```bin``` coloque el comando:
 
-`istioctl dashboard kiali`
+`.\istioctl dashboard kiali` o `istioctl dashboard kiali`
 
-Las credenciales para acceder, tanto usuario como contraseña es **admin**
+Para acceder en las credenciales de usuario y contraseña coloque **admin**.
 
 <p align=center><img src=".github/istioctl-login.png"></p>
 <br />
