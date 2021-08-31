@@ -138,7 +138,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
 4. Para continuar con el ejercicio y ejecutar la aplicación, utilice los siguientes comandos:
 
-   **Clúster de Infraestructura Clásica** 
+   ### Clúster de Infraestructura Clásica 
    <br />
    Si trabaja con un clúster de infraestructura clásica, deberá obtener la dirección ip y el puerto. Para ello siga estos pasos:
 
@@ -177,7 +177,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
    <br />
 
 
-   **Clúster en VPC**
+   ### Clúster en VPC
    <br />
    Si trabaja con un clúster en VPC, deberá obtener el endpoint. Para ello siga estos pasos:
 
