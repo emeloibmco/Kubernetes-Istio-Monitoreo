@@ -34,7 +34,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 <br />
 
 
-### Configuración de Istio en IKS :gear:
+## Configuración de Istio en IKS :gear:
 
 1. Clone este repositorio y configure las variables de entorno de nuestro ambiente. Para ello, ubíquese en la carpeta clonada del repositorio y coloque: 
 
@@ -97,7 +97,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
    <br />
 
 
-### Despliegue de la aplicación :rocket:
+## Despliegue de la aplicación :rocket:
 
 1. Aplicación bookinfo.
 
@@ -214,7 +214,7 @@ Para acceder en las credenciales de usuario y contraseña coloque **admin**.
 
 
 
-### Captura de datos en Kiali :clipboard:
+## Captura de datos en Kiali :clipboard:
 
 Seleccione en el panel izquierdo ```Graph``` y filtre por el namespace, en este caso Default. Como no se han generado solicitudes a la aplicación y el resultado de la gráfica será:  **Empty Graph**.
 
@@ -297,7 +297,7 @@ En la pestaña Display ➡ sección Show ➡ seleccione Compress Hidden, Node Na
 
 
 
-### Definición de políticas de acceso a nuestra base de datos :closed_lock_with_key:
+## Definición de políticas de acceso a nuestra base de datos :closed_lock_with_key:
 Es necesario definir nuevas políticas de acceso por medio del enrutamiento del Ingress Gateway a la nueva versión del servicio ratings y al servicio mongodb. Para ello utilice los comandos:
 
 ```bash
