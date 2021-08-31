@@ -33,7 +33,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
 ## ✋ Hands On!
 
-### Configuración de Istio en IKS
+### ⚙ Configuración de Istio en IKS
 
 1. Clone este repositorio y configure las variables de entorno de nuestro ambiente. Para ello, ubíquese en la carpeta clonada del repositorio y coloque: 
 
@@ -193,7 +193,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
    Ejemplo:
    ```
-   http://3401ba17-us-south.lb.appdomain.cloud/productpage
+   http://http://3401ba17-us-south.lb.appdomain.cloud/productpage/productpage
    ```
 
    <br />
@@ -215,13 +215,14 @@ Para acceder en las credenciales de usuario y contraseña coloque **admin**.
 
 ### 📋 Captura de datos en Kiali
 
-Seleccionamos en el panel izquierdo Graph y filtramos por nuestro namespace, en este caso Default, sin embargo, no hemos generado solicitudes a nuestra aplicación y por eso nos mostrará **Empty Graph**
+Seleccione en el panel izquierdo ```Graph``` y filtre por el namespace, en este caso Default. Como no se han generado solicitudes a la aplicación y el resultado de la gráfica será:  **Empty Graph**.
 
-Para generar una cantidad considerable de solicitudes, y así poder visualizar el tráfico en nuestro Service Mesh, usar el comando:
+Para generar una cantidad considerable de solicitudes, y así poder visualizar el tráfico en el Service Mesh, usar el comando:
 
 **Windows PowerShell:**
 
-```powershell
+* Clúster en infraestructura clásica:
+```
 $i = 1
 do
 {
@@ -232,13 +233,35 @@ do
 while ($i -le 10)
 ```
 
+* Clúster en VPC:
+```
+$i = 1
+do
+{
+   $Response = Invoke-WebRequest -URI http://3401ba17-us-south.lb.appdomain.cloud/productpage
+   $Response.StatusCode
+   $i++
+}
+while ($i -le 10)
+```
+
 **Linux & OSX:**
+
+* Clúster en infraestructura clásica:
 
 ```bash
 for ((i = 0; i < 10; i++)); do
     curl -o /dev/null -s -w "%{http_code}\n" http://169.63.6.234/productpage
 done
 ```
+
+* Clúster en VPC:
+```bash
+for ((i = 0; i < 10; i++)); do
+    curl -o /dev/null -s -w "%{http_code}\n" http://3401ba17-us-south.lb.appdomain.cloud/productpage
+done
+```
+<br />
 
 En el panel lateral izquierdo seleccionamos Graph, en la pestaña Display, sección Show Edge Labels, seleccionamos Request Percentage y en la sección show Traffic Animation.
 
