@@ -91,7 +91,9 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
    Esto se realiza para un namespace determinado, en este caso use el namespace por defecto (```default```). Coloque el comando:
 
-   `kubectl label namespace default istio-injection=enabled`
+   ```
+   kubectl label namespace default istio-injection=enabled
+   ```
 
    <p align=center><img src=".github/istioctl-injection.png"></p>
    <br />
@@ -103,20 +105,26 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
    * El primer paso consiste en desplegar la aplicación de ejemplo Bookinfo que está en la carpeta ```samples``` del repositorio, usando el comando:
 
-     `kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml`
+     ```
+     kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
+     ```
 
      Este comando creará todo el despliegue en el clúster, es decir, Deployment, Service, Pods y réplicas.
 
    * Visualice los servicios implementados en el clúster con el comando:
 
-     `kubectl get services`
+     ```
+     kubectl get services
+     ```
 
      <p align=center><img src=".github/istioctl-services.png"></p>
      <br />
 
    * Visualice los pods implementados en el clúster con el comando:
 
-     `kubectl get pods`
+     ```
+     kubectl get pods
+     ```
 
      <p align=center><img src=".github/istioctl-pods.png"></p>
      <br />
@@ -125,14 +133,18 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
    Por defecto, el ingress gateway se encarga de bloquear todas las solicitudes, permitiendo únicamente las definidas en las políticas de acceso. Utilice el comando:
 
-   `kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml`
+   ```
+   kubectl apply -f samples/bookinfo/networking/bookinfo-gateway.yaml
+   ```
 
    <p align=center><img src=".github/istioctl-ingress.png"></p>
    <br />
 
 3. Defina la configuración de enrutamiento donde se especifica a que servicios se puede acceder desde el exterior. Para ello utilice el archivo destination-rule-all.yaml mediante el comando:
 
-   `kubectl apply -f samples/bookinfo/networking/destination-rule-all.yaml`
+   ```
+   kubectl apply -f samples/bookinfo/networking/destination-rule-all.yaml
+   ```
 
    <p align=center><img src=".github/istioctl-routes.png"></p>
    <br />
@@ -145,7 +157,9 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
    * Obtener Dirección IP:
 
-   `kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}'`
+   ```
+   kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
+   ```
 
    <p align=center><img src=".github/istioctl-ip.png"></p>
    <br />
@@ -154,19 +168,25 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
    Terminal de Linux & OSX
 
-   `kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{$.spec.ports[?(@.name=="http2")].nodePort}'`
+   ```
+   kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{$.spec.ports[?(@.name=="http2")].nodePort}'
+   ```
    <br />
 
    PowerShell:
 
-   `kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{$.spec.ports[?(@.name==\"http2\")].nodePort}'`
+   ```
+   kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{$.spec.ports[?(@.name==\"http2\")].nodePort}'
+   ```
 
    <p align=center><img src=".github/istioctl-port.png"></p>
    <br />
 
    Ahora verifique que sea posible acceder mediante el comando:
 
-   `curl -o /dev/null -s -w "%{http_code}\n" http://169.63.6.234/productpage`
+   ```
+   curl -o /dev/null -s -w "%{http_code}\n" http://169.63.6.234/productpage
+   ```
 
    La salida debe ser 200.
    
@@ -185,7 +205,9 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
    * Obtener endpoint:
 
-   `kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].hostname}''`
+   ```
+   kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'
+   ```
    <br />
 
    Ahora verifique que sea posible acceder a la aplicación por el navegador accediendo a la dirección con:
@@ -279,17 +301,23 @@ Revise nuevamente la ventana que muestra Kiali y asegúrese de tener seleccionad
 
 1. Ejecute el comando para desplegar el servicio (salga de la carpeta ```bin```con ```cd ..```):
 
-   `kubectl apply -f samples/bookinfo/platform/kube/bookinfo-db.yaml`
+   ```
+   kubectl apply -f samples/bookinfo/platform/kube/bookinfo-db.yaml
+   ```
    <br />
 
 2. Compruebe que se se ha creado un nuevo servicio de mongodb, con el comando:
 
-   `kubectl get services`
+   ```
+   kubectl get services
+   ```
    <br />
 
 3. Despliegue una nueva versión del servicio de ratings que consume el servicio de mongodb, coloque el comando:
 
-   `kubectl apply -f samples/bookinfo/platform/kube/bookinfo-ratings-v2.yaml`
+   ```
+   kubectl apply -f samples/bookinfo/platform/kube/bookinfo-ratings-v2.yaml
+   ```
    <br />
 
 4. Para poder visualizar en Kiali las versiones, de click la lista que se encuentra al lado derecho del Namespace y seleccione la opción Versioned app graph:
