@@ -2,7 +2,7 @@
 
 **Disclaimer**: Este repositorio contiene una copia de Istio, todos los archivos han sido descargados del [GitHub Oficial de Istio](https://github.com/istio/istio/releases) y pertenecen a sus respectivos autores.
 
-Esta demo es un acercamiento al concepto de Service Mesh en un Clpuster de K8s provisto en IBM Cloud usando Istio y el Dashboard Kiali.
+Esta demo es un acercamiento al concepto de Service Mesh en un Clúster de K8s provisto en IBM Cloud usando Istio y el Dashboard Kiali.
 
 Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas entre servicios, realizar transiciones ágiles entre versiones de un servicio y visualizar nuestro Service Mesh con Kiali.
 
