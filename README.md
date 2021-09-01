@@ -226,7 +226,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
    Ejemplo:
    ```
-   http://http://3401ba17-us-south.lb.appdomain.cloud/productpage/productpage
+   http://3401ba17-us-south.lb.appdomain.cloud/productpage/productpage
    ```
 
    <br />
