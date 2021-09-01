@@ -82,7 +82,16 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
 3. Instalar Istio en el clúster
 
-   Para efectos de esta demo se define el perfil demo incluido en el repositorio. Usando el comando `istioctl install --set profile=demo` se instalará y configurará Istio en el clúster.
+   Para efectos de esta demo se define el perfil demo incluido en el repositorio. Usando el comando 
+   ```
+   istioctl install --set profile=demo
+   ``` 
+   o
+    ```
+   .\istioctl install --set profile=demo
+   ``` 
+   
+   se instalará y configurará Istio en el clúster.
 
    <p align=center><img src=".github/istioctl-install.png"></p>
    <br />
