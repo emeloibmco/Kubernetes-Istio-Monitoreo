@@ -74,7 +74,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
    ```
    <br />
 
-   * Verifique el nombre del clúster (```\<cluster_name>```) en el que va a trabajar y habilite el comando ```kubectl``` de la siguiente manera:
+   * Verifique el nombre del clúster (```<cluster_name>```) en el que va a trabajar y habilite el comando ```kubectl``` de la siguiente manera:
    ```
    ibmcloud ks cluster config --cluster <cluster_name>
    ```
