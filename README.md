@@ -154,7 +154,7 @@ Kiali es una consola de administración para Istio que permite controlar la mall
 * [Kiali y Prometheus para producción](#Kiali-y-Prometheus-para-producción).
 <br />
 
-### Kiali y Prometehus demo
+### Kiali y Prometheus demo
 Para instalar la versión demo de Kiali y Prometehus siga los pasos que se muestran a continuación:
 <br />
 
@@ -166,7 +166,7 @@ kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.10/samp
 
 <br />
 
-### Kiali y Prometehus para producción
+### Kiali y Prometheus para producción
 <br />
 
 <br />
