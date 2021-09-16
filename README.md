@@ -211,7 +211,7 @@ Para este caso, la versión empleada de Kiali es la ```1.37.0```. Por otro lado,
    <p align=center><img width="800" src=".github/Kiali-operator.PNG"></p>
    <br />
 
-Para el caso de Prometheus, se recomienda para ambientes de producción implementar federación jerárquica y reglas. Cuando se implementa Prometheus en versión demo la ventana de retención es muy corta (6 horas), por lo cual se realizan una serie de configuraciones para contar con rangos mayores en la colección de métricas, para así poder realizar monitoreo a escala de producción. 
+Para el caso de Prometheus, se recomienda para ambientes de producción implementar federación jerárquica y reglas. Cuando se implementa Prometheus en versión demo la ventana de retención es muy corta (6 horas), por lo cual se realizan una serie de configuraciones para contar con rangos mayores en la colección de métricas y así poder realizar monitoreo a escala de producción. 
 
 <br />
 
@@ -364,15 +364,26 @@ Complete los siguientes pasos para configurar Prometheus a escala de producción
 
 ## Dashboard Kiali :computer:
 
+Para acceder al dashboard de kiali, tenga en cuenta las siguientes opciones según el ambiente en el que trabaja su clúster:
+* [Kiali demo](#Kiali-demo).
+* [Kiali para producción](#Kiali-para-producción).
+<br />
+
+
+### Kiali demo
 Istio viene por defecto con Kiali. Para visualizar el Service Mesh vaya a la carpeta ```bin``` (ya que en esta carpeta contiene el ejecutable de Kiali) con ```cd bin``` y coloque el comando:
 
-`.\istioctl dashboard kiali` o `istioctl dashboard kiali`
+```
+istioctl dashboard kiali
+```
 
 Para acceder en las credenciales de usuario y contraseña coloque **admin**.
 
 <p align=center><img src=".github/istioctl-login.png"></p>
 <br />
 
+### Kiali para producción
+<br />
 
 
 ## Captura de datos en Kiali :clipboard:
