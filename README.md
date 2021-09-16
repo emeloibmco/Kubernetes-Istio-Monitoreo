@@ -1,4 +1,4 @@
-# Demostración de la aplicabilidad de Istio en un Clúster K8s ☁
+# Aplicabilidad de Istio en un Clúster de Kubernetes ☁
 
 **Disclaimer**: Este repositorio contiene una copia de Istio, todos los archivos han sido descargados del [GitHub Oficial de Istio](https://github.com/istio/istio/releases) y pertenecen a sus respectivos autores.
 
