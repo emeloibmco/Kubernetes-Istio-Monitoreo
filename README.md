@@ -149,20 +149,32 @@ Para instalar la versión para ambiente productivos de Istio, siga los pasos que
 
 
 ## Instalación de Kiali y Prometehus en el Clúster :chart_with_upwards_trend:
-Kiali es una consola de administración para Istio que permite controlar la malla de servicios. Esta herramienta necesita recuperar datos y configuraciones de Istio, que se exponen a través de Prometheus y la API del clúster, por lo cual una vez instale Kiali deberá instalar Prometheus. Para realizar la instalación de Kiali y Promethesu en el clúster se proporcionan dos opciones en esta documentación:
+Kiali es una consola de administración para Istio que permite controlar la malla de servicios. Esta herramienta necesita recuperar datos y configuraciones de Istio, que se exponen a través de Prometheus y la API del clúster, por lo cual, una vez instale Kiali deberá instalar Prometheus. Para realizar la instalación de Kiali y Prometheus en el clúster se proporcionan dos opciones en esta documentación:
 * [Kiali y Prometheus demo](#Kiali-y-Prometheus-demo) para ambientes no productivos.
 * [Kiali y Prometheus para producción](#Kiali-y-Prometheus-para-producción).
 <br />
 
 ### Kiali y Prometheus demo
-Para instalar la versión demo de Kiali y Prometehus siga los pasos que se muestran a continuación:
+Para instalar la versión demo de Kiali y Prometheus siga los pasos que se muestran a continuación:
 <br />
 
 1. Para instalar Kiali en el clúster utilice el siguiente comando:
 
-```
-kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.10/samples/addons/kiali.yaml
-```
+   ```
+   kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.10/samples/addons/kiali.yaml
+   ```
+   
+   <p align=center><img width="950" src=".github/kiali-demo.PNG"></p>
+   <br />
+
+2. Para instalar Prometheus en el clúster utilice el siguiente comando:
+
+   ```
+   kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.10/samples/addons/prometheus.yaml
+   ```
+   
+   <p align=center><img width="950" src=".github/promethus-demo.PNG"></p>
+   <br />
 
 <br />
 
