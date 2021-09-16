@@ -223,10 +223,10 @@ Complete los siguientes pasos para configurar Prometheus a escala de producción
 1. Para instalar Prometheus en el clúster utilice el siguiente comando:
 
    ```
-   kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.10/samples/addons/prometheus.yaml
+   kubectl apply -f https://raw.githubusercontent.com/wavefrontHQ/integrations/master/istio/prometheus.yaml
    ```
    
-   <p align=center><img width="950" src=".github/promethus-demo.PNG"></p>
+   <p align=center><img width="950" src=".github/prometheus-production.PNG"></p>
    <br />
 
 2. Verifique que Prometheus se ha instalado en el namespace ```istio-system```. 
