@@ -441,6 +441,9 @@ Para obtener el token de acceso realice lo siguiente:
   Posteriormente aparecerá el token de acceso que deberá colocar en la ventana de Kiali para acceder a las métricas.
   
   <br />
+  
+  <p align=center><img src=".github/Ejemplo-Token.PNG"></p>
+  <br />
 
 
 ## Captura de datos en Kiali :clipboard:
