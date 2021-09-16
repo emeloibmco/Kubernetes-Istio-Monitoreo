@@ -149,6 +149,17 @@ Para instalar la versión para ambiente productivos de Istio, siga los pasos que
 
 
 ## Instalación de Kiali en el Clúster :chart_with_upwards_trend:
+Kiali es uan consola de administración para Istio que permite controlar la malla de servicios. Para realizar la instalación de Kiali en el clúster se porporcionan dos opciones en esta documentación:
+* [Kiali demo](#Istio-demo) para ambientes no productivos.
+* [Kiali para producción](#Istio-para-producción).
+<br />
+
+### Kiali demo
+
+<br />
+
+### Kiali para producción
+<br />
 
 <br />
 
