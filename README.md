@@ -211,6 +211,24 @@ Para este caso, la versión empleada de Kiali es la ```1.37.0```. Por otro lado,
    <p align=center><img width="800" src=".github/Kiali-operator.PNG"></p>
    <br />
 
+Para el caso de Prometheus, se recomienda para ambientes de producción implementar federación jerárquica y reglas. Cuando se implementa Prometheus en versión demo la ventana de retención es muy corta (6 horas), por lo cual se realizan una serie de configuraciones para contar con rangos mayores en la colección de métricas, para así poder realizar monitoreo a escala de producción. 
+<br />
+
+   <p align=center><img width="600" src="https://istio.io/v1.10/docs/ops/best-practices/observability/production-prometheus.svg"></p>
+   <br />
+
+Complete los siguientes pasos para configurar Prometheus a escala de producción:
+
+1. Para instalar Prometheus en el clúster utilice el siguiente comando:
+
+   ```
+   kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.10/samples/addons/prometheus.yaml
+   ```
+   
+   <p align=center><img width="950" src=".github/promethus-demo.PNG"></p>
+   <br />
+
+2. 
 
 ## Despliegue de la aplicación :rocket:
 
