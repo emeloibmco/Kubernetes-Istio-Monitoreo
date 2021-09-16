@@ -400,6 +400,9 @@ Para visualizar y acceder a Kiali en la versión para ambientes productivos, pue
 
   Una vez aplique el comando, obtendrá como respuesta ```http://localhost:20001/kiali```. Si de forma automática no se abre esta URL en el navegador, colóquela de forma manual. Allí le aparecerá una ventana para acceder a Kiali. En las credenciales de acceso le piden un token del Kubernetes Service Account. Los pasos para obtener este token se presentarán más adelante.
   <br />
+  
+  <p align=center><img src=".github/ventana-kiali.PNG"></p>
+  <br />
 
 * **Opción 2:**
  
