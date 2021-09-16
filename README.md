@@ -425,7 +425,7 @@ Para obtener el token de acceso realice lo siguiente:
   ```
   <br />
 
-2. Visualice el secrte que corresponde a ```kiali-service-account-token-xxxxx``` y aplíquelo en el siguiente comando:
+2. Visualice el secret que corresponde a ```kiali-service-account-token-xxxxx``` y aplíquelo en el siguiente comando:
   ```
   kubectl describe secrets/kiali-service-account-token-xxxxx -n istio-system
   ```
@@ -439,11 +439,13 @@ Para obtener el token de acceso realice lo siguiente:
   <br />
   
   Posteriormente aparecerá el token de acceso que deberá colocar en la ventana de Kiali para acceder a las métricas.
+  
+  <br />
 
 
 ## Captura de datos en Kiali :clipboard:
 
-Seleccione en el panel izquierdo ```Graph``` y filtre por el namespace, en este caso Default. Como no se han generado solicitudes a la aplicación y el resultado de la gráfica será:  **Empty Graph**.
+Una vez a accedido a Kiali, seleccione en el panel izquierdo ```Graph``` y filtre por el namespace, en este caso Default. Como no se han generado solicitudes a la aplicación y el resultado de la gráfica será:  **Empty Graph**.
 
 Para generar una cantidad considerable de solicitudes y así poder visualizar el tráfico en el Service Mesh, en una nueva ventana use el comando:
 
