@@ -12,13 +12,15 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
 1. [Requisitos](#Requisitos-newspaper)
 2. [Configuración de Istio en IKS](#Configuración-de-Istio-en-IKS-gear)
-3. [Despliegue de la aplicación](#Despliegue-de-la-aplicación-rocket)
-4. [Dashboard Kiali](#Dashboard-Kiali-computer)
-5. [Captura de datos en Kiali](#Captura-de-datos-en-Kiali-clipboard)
-6. [Despliegue de servicio de base de datos MongoDB](#Despliegue-de-servicio-de-base-de-datos-MongoDB-books)
-7. [Definición de políticas de acceso a la base de datos](#Definición-de-políticas-de-acceso-a-la-base-de-datos-closed_lock_with_key)
-8. [Referencias](#Referencias-mag)
-9. [Autores](#Autores-black_nib)
+3. [Instalación de Istio en el Clúster](#Instalación-de-Istio-en-el-Clúster-cloud)
+4. [Instalación de Kiali en el Clúster](#Instalación-de-Kiali-en-el-Clúster-chart_with_upwards_trend)
+5. [Despliegue de la aplicación](#Despliegue-de-la-aplicación-rocket)
+6. [Dashboard Kiali](#Dashboard-Kiali-computer)
+7. [Captura de datos en Kiali](#Captura-de-datos-en-Kiali-clipboard)
+8. [Despliegue de servicio de base de datos MongoDB](#Despliegue-de-servicio-de-base-de-datos-MongoDB-books)
+9. [Definición de políticas de acceso a la base de datos](#Definición-de-políticas-de-acceso-a-la-base-de-datos-closed_lock_with_key)
+10. [Referencias](#Referencias-mag)
+11. [Autores](#Autores-black_nib)
 <br />
 
 ## Requisitos :newspaper:
@@ -106,6 +108,14 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
    <p align=center><img src=".github/istioctl-injection.png"></p>
    <br />
+   
+
+## Instalación de Istio en el Clúster :cloud:
+<br />
+
+
+## Instalación de Kiali en el Clúster :chart_with_upwards_trend:
+<br />
 
 
 ## Despliegue de la aplicación :rocket:
