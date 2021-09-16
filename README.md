@@ -32,7 +32,8 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 - :cloud: [IBM Cloud CLI](https://cloud.ibm.com/docs/cli?topic=cloud-cli-getting-started&locale=en)
 - :whale: [Docker](https://www.docker.com/products/docker-desktop)
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/). La version de esta herramienta debe ser compatible con la version de IKS que se desplegó en la cuenta.
-- Complemento [container-service/kubernetes-service](https://cloud.ibm.com/docs/cli?topic=cli-install-devtools-manually) para ibmcloud CLI. `ibmcloud plugin install container-service/kubernetes-service`
+- Complemento [container-service/kubernetes-service](https://cloud.ibm.com/docs/cli?topic=cli-install-devtools-manually) para ibmcloud CLI. `ibmcloud plugin install container-service/kubernetes-service`.
+- Tener instalado [Helm V3](https://github.com/helm/helm/releases) en su computador para instalar el operador de Kiali (para ambientes de producción).
 <br />
 
 
@@ -90,8 +91,8 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 ## Instalación de Istio en el Clúster :cloud:
 
 Para realizar la instalación de Istio en el clúster se porporcionan dos métodos:
-a. [Istio demo](#Istio-demo) para ambientes no productivos.
-b. [Istio para producción](#Istio-para-producción).
+* [Istio demo](#Istio-demo) para ambientes no productivos.
+* [Istio para producción](#Istio-para-producción).
 <br />
 
 Al momento de realizar este repositorio, la versión más reciente de Istio era la ```1.11```, pero al ser un lanzamiento reciente algunas de sus características y herramientas se ecnontraban en beta. Por este motivo, para la prueba que se presenta en esta documentación se utiliza la versión ```1.10.3``` para ambientes productivos y no productivos.
@@ -107,12 +108,10 @@ Para instalar la versión demo de Istio (ambientes no productivos), siga los pas
    istioctl install --set profile=demo
    ``` 
    
-   <p align=center><img src=".github/istioctl-install.png"></p>
+   <p align=center><img src=".github/istioctl-install-demo.PNG"></p>
    <br />
 
-2. Habilite la inyección automática de Istio al Envoy Sidecar del clúster
-
-   Esto se realiza para un namespace determinado, en este caso use el namespace por defecto (```default```). Coloque el comando:
+2. Habilite la inyección automática de Istio al Envoy Sidecar del clúster. Esto se realiza para un namespace determinado, en este caso use el namespace por defecto (```default```). Coloque el comando:
 
    ```
    kubectl label namespace default istio-injection=enabled
@@ -123,7 +122,28 @@ Para instalar la versión demo de Istio (ambientes no productivos), siga los pas
 <br />
 
 ### Istio para producción
+Para instalar la versión para ambiente productivos de Istio, siga los pasos que se muestran a continuación:
 <br />
+
+1. Una vez ha iniciado sesión y seleccionado el clúster en l que va a trabajar, instale la versión demo de Istio con el comando:
+
+   ```
+   istioctl install --set profile=default
+   ``` 
+   
+   <p align=center><img src=".github/istioctl-install-default.PNG"></p>
+   <br />
+
+2. Habilite la inyección automática de Istio al Envoy Sidecar del clúster. Esto se realiza para un namespace determinado, en este caso use el namespace por defecto (```default```). Coloque el comando:
+
+   ```
+   kubectl label namespace default istio-injection=enabled
+   ```
+
+   <p align=center><img src=".github/istioctl-injection.png"></p>
+   <br />
+<br />
+
 
 ## Instalación de Kiali en el Clúster :chart_with_upwards_trend:
 <br />
