@@ -13,7 +13,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 1. [Requisitos](#Requisitos-newspaper)
 2. [Configuración de Istio en IKS](#Configuración-de-Istio-en-IKS-gear)
 3. [Instalación de Istio en el Clúster](#Instalación-de-Istio-en-el-Clúster-cloud)
-4. [Instalación de Kiali y Prometehus en el Clúster](#Instalación-de-Kiali-y-Prometehus-en-el-Clúster-chart_with_upwards_trend)
+4. [Instalación de Kiali y Prometheus en el Clúster](#Instalación-de-Kiali-y-Prometheus-en-el-Clúster-chart_with_upwards_trend)
 5. [Despliegue de la aplicación](#Despliegue-de-la-aplicación-rocket)
 6. [Dashboard Kiali](#Dashboard-Kiali-computer)
 7. [Captura de datos en Kiali](#Captura-de-datos-en-Kiali-clipboard)
@@ -148,7 +148,7 @@ Para instalar la versión para ambiente productivos de Istio, siga los pasos que
 <br />
 
 
-## Instalación de Kiali y Prometehus en el Clúster :chart_with_upwards_trend:
+## Instalación de Kiali y Prometheus en el Clúster :chart_with_upwards_trend:
 Kiali es una consola de administración para Istio que permite controlar la malla de servicios. Esta herramienta necesita recuperar datos y configuraciones de Istio, que se exponen a través de Prometheus y la API del clúster, por lo cual, una vez instale Kiali deberá instalar Prometheus. Para realizar la instalación de Kiali y Prometheus en el clúster se proporcionan dos opciones en esta documentación:
 * [Kiali y Prometheus demo](#Kiali-y-Prometheus-demo) para ambientes no productivos.
 * [Kiali y Prometheus para producción](#Kiali-y-Prometheus-para-producción).
