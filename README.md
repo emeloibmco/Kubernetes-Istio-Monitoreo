@@ -111,7 +111,7 @@ Para instalar la versión demo de Istio (ambientes no productivos), siga los pas
    istioctl install --set profile=demo
    ``` 
    
-   <p align=center><img width="600"src=".github/istioctl-install-demo.PNG"></p>
+   <p align=center><img width="400" src=".github/istioctl-install-demo.PNG"></p>
    <br />
 
 2. Habilite la inyección automática de Istio al Envoy Sidecar del clúster. Esto se realiza para un namespace determinado, en este caso use el namespace por defecto (```default```). Coloque el comando:
@@ -120,7 +120,7 @@ Para instalar la versión demo de Istio (ambientes no productivos), siga los pas
    kubectl label namespace default istio-injection=enabled
    ```
 
-   <p align=center><img src=".github/istio-injection.png"></p>
+   <p align=center><img width="300" src=".github/istio-injection.png"></p>
    <br />
 <br />
 
@@ -134,7 +134,7 @@ Para instalar la versión para ambiente productivos de Istio, siga los pasos que
    istioctl install --set profile=default
    ``` 
    
-   <p align=center><img src=".github/istioctl-install-default.PNG"></p>
+   <p align=center><img width="400" src=".github/istioctl-install-default.PNG"></p>
    <br />
 
 2. Habilite la inyección automática de Istio al Envoy Sidecar del clúster. Esto se realiza para un namespace determinado, en este caso use el namespace por defecto (```default```). Coloque el comando:
@@ -143,7 +143,7 @@ Para instalar la versión para ambiente productivos de Istio, siga los pasos que
    kubectl label namespace default istio-injection=enabled
    ```
 
-   <p align=center><img src=".github/istio-injection.png"></p>
+   <p align=center><img width="300" src=".github/istio-injection.png"></p>
    <br />
 <br />
 
