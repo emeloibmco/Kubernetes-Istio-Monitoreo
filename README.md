@@ -149,7 +149,7 @@ Para instalar la versión para ambiente productivos de Istio, siga los pasos que
 
 
 ## Instalación de Kiali y Prometehus en el Clúster :chart_with_upwards_trend:
-Kiali es una consola de administración para Istio que permite controlar la malla de servicios. Kiali necesita recuperar datos y configuraciones de Istio, que se exponen a través de Prometheus y la API del clúster, por lo cual una vez instale Kiali deberá instalar Prometheus. Para realizar la instalación de Kiali en el clúster se proporcionan dos opciones en esta documentación:
+Kiali es una consola de administración para Istio que permite controlar la malla de servicios. Esta herramienta necesita recuperar datos y configuraciones de Istio, que se exponen a través de Prometheus y la API del clúster, por lo cual una vez instale Kiali deberá instalar Prometheus. Para realizar la instalación de Kiali y Promethesu en el clúster se proporcionan dos opciones en esta documentación:
 * [Kiali y Prometheus demo](#Kiali-y-Prometheus-demo) para ambientes no productivos.
 * [Kiali y Prometheus para producción](#Kiali-y-Prometheus-para-producción).
 <br />
