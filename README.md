@@ -149,7 +149,11 @@ Para instalar la versión para ambiente productivos de Istio, siga los pasos que
 
 
 ## Instalación de Kiali y Prometheus en el Clúster :chart_with_upwards_trend:
-Kiali es una consola de administración para Istio que permite controlar la malla de servicios. Esta herramienta necesita recuperar datos y configuraciones de Istio, que se exponen a través de Prometheus y la API del clúster, por lo cual, una vez instale Kiali deberá instalar Prometheus. Para realizar la instalación de Kiali y Prometheus en el clúster se proporcionan dos opciones en esta documentación:
+Kiali es una consola de administración para Istio que permite controlar la malla de servicios. Esta herramienta necesita recuperar datos y configuraciones de Istio, que se exponen a través de Prometheus y la API del clúster, por lo cual, una vez instale Kiali deberá instalar Prometheus. 
+
+Por su parte, Prometheus es una dependencia de Istio. Cuando la telemetría de Istio está habilitada, los datos de métricas se almacenan en Prometheus. Kiali utiliza los datos almacenados en Prometheus para mostrar las métricas.
+
+Para realizar la instalación de Kiali y Prometheus en el clúster se proporcionan dos opciones en esta documentación:
 * [Kiali y Prometheus demo](#Kiali-y-Prometheus-demo) para ambientes no productivos.
 * [Kiali y Prometheus para producción](#Kiali-y-Prometheus-para-producción).
 <br />
@@ -377,23 +381,59 @@ Para visualizar y acceder a Kiali en la versión para ambientes no productivos, 
 istioctl dashboard kiali
 ```
 
-Para acceder, en las credenciales de usuario y contraseña coloque **admin**.
+Una vez aplique el comando, obtendrá como respuesta ```http://localhost:puerto```, donde puerto es un valor aleatorio. Si de forma automática no se abre esta URL en el navegador, colóquela de forma manual. Allí le aparecerá una ventana para acceder a Kiali. En las credenciales de usuario y contraseña coloque **admin**.
 
 <p align=center><img src=".github/istioctl-login.png"></p>
 <br />
 
 ### Kiali para producción
 Para visualizar y acceder a Kiali en la versión para ambientes productivos, puede realizarlo de 2 formas:
-
-1. Vaya a la carpeta ```bin``` (ya que esta carpeta contiene el ejecutable de Kiali) con ```cd bin``` (que se encuentra dentro de la carpeta clonada ```Kubernetes-Seguridad-Istio\istio-1.10.3```) y coloque el comando:
-
-   ```
-   istioctl dashboard kiali
-   ```
-   
-   
-
 <br />
+
+  * **Opción 1***
+  Vaya a la carpeta ```bin``` (ya que esta carpeta contiene el ejecutable de Kiali) con ```cd bin``` (que se encuentra dentro de la carpeta clonada ```Kubernetes-Seguridad-Istio\istio-1.10.3```) y coloque el comando:
+
+  ```
+  istioctl dashboard kiali
+  ```
+
+  Una vez aplique el comando, obtendrá como respuesta ```http://localhost:20001/kiali```. Si de forma automática no se abre esta URL en el navegador, colóquela de forma manual. Allí le aparecerá una ventana para acceder a Kiali. En las credenciales de acceso le piden un token del Kubernetes Service Account. Los pasos para obtener este token se presentarán más adelante.
+  <br />
+
+  * **Opción 2***
+  En el overview de su clúster visualice y copie el ```Ingress subdomain```. Posteriormente colóquelo en el navegador agregando al final \kiali y espere a que la ventana cargue.
+
+  ```
+  <Ingress subdomain>/kiali
+  ```
+  En las credenciales de acceso le piden un token del Kubernetes Service Account. Los pasos para obtener este token se presentarán más adelante.
+  <br />
+  
+  <p align=center><img src=".github/ventana-kiali.PNG"></p>
+  <br />
+ 
+Para obtener el token de acceso realice lo siguiente:
+
+1. Obtenga los secrets del namescape ```istio-system``` con el siguiente comando:
+  ```
+  kubectl get secrets -n istio-system
+  ```
+  <br />
+
+2. Visualice el secrte que corresponde a ```kiali-service-account-token-xxxxx``` y aplíquelo en el siguiente comando:
+  ```
+  kubectl describe secrets/kiali-service-account-token-xxxxx -n istio-system
+  ```
+  <br />
+  
+  Ejemplo:
+  
+  ```
+  kubectl describe secrets/kiali-service-account-token-9jg27 -n istio-system
+  ```
+  <br />
+  
+  Posteriormente aparecerá el token de acceso que deberá colocar en la ventana de Kiali para acceder a las métricas.
 
 
 ## Captura de datos en Kiali :clipboard:
