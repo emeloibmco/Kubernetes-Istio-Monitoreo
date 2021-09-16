@@ -391,6 +391,7 @@ Para visualizar y acceder a Kiali en la versión para ambientes productivos, pue
 <br />
 
   * **Opción 1**
+  <br />
   Vaya a la carpeta ```bin``` (ya que esta carpeta contiene el ejecutable de Kiali) con ```cd bin``` (que se encuentra dentro de la carpeta clonada ```Kubernetes-Seguridad-Istio\istio-1.10.3```) y coloque el comando:
 
   ```
@@ -401,6 +402,7 @@ Para visualizar y acceder a Kiali en la versión para ambientes productivos, pue
   <br />
 
   * **Opción 2**
+  <br />
   En el overview de su clúster visualice y copie el ```Ingress subdomain```. Posteriormente colóquelo en el navegador agregando al final \kiali y espere a que la ventana cargue.
 
   ```
