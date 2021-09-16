@@ -228,29 +228,20 @@ Complete los siguientes pasos para configurar Prometheus a escala de producción
    
    <p align=center><img width="950" src=".github/prometheus-production.PNG"></p>
    <br />
+   
+   > NOTA: En caso de que el enlace falle al momento de realizar la instalación, en el respositorio puede encontrar el archivo ```prometheus.yaml```que contiene las configuraciones de federación jerárquica y reglas para ambientes a escala de producción.  
 
 2. Verifique que Prometheus se ha instalado en el namespace ```istio-system```. 
 
    <p align=center><img width="800" src=".github/prometheus-istio-system.PNG"></p>
-   <br />
-
-3. En el pod de Prometehus agregue las siguientes reglas de registro:
-
-   
-   <br />
-
-
-4. Establezca la federación jerárquica. Para ello edite el deployment de Prometheus agregando lo siguiente:
-
-   
-   <br />
+<br />
 
 
 ## Despliegue de la aplicación :rocket:
 
 1. Aplicación bookinfo.
 
-   * El primer paso consiste en desplegar la aplicación de ejemplo Bookinfo que está en la carpeta ```samples``` del repositorio. Para ello, salga de la carpeta ```bin``` con el comando ```cd..``` y asegúrese de quedar en la ruta ```Kubernetes-Seguridad-Istio\istio-1.10.3``` donde se ubica la carpeta ```samples```. Luego utilice el comando el comando:
+   * El primer paso consiste en desplegar la aplicación de ejemplo Bookinfo que está en la carpeta ```samples``` del repositorio. Para ello, salga de la carpeta ```bin``` con el comando ```cd..``` y asegúrese de quedar en la ruta ```Kubernetes-Seguridad-Istio\istio-1.10.3``` donde se ubica la carpeta ```samples```. Luego coloque el comando:
 
      ```
      kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
