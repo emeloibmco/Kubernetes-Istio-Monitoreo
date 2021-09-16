@@ -364,25 +364,35 @@ Complete los siguientes pasos para configurar Prometheus a escala de producción
 
 ## Dashboard Kiali :computer:
 
-Para acceder al dashboard de kiali, tenga en cuenta las siguientes opciones según el ambiente en el que trabaja su clúster:
+Para acceder al dashboard de Kiali, tenga en cuenta las siguientes opciones según el ambiente en el que trabaja su clúster:
 * [Kiali demo](#Kiali-demo).
 * [Kiali para producción](#Kiali-para-producción).
 <br />
 
 
 ### Kiali demo
-Istio viene por defecto con Kiali. Para visualizar el Service Mesh vaya a la carpeta ```bin``` (ya que en esta carpeta contiene el ejecutable de Kiali) con ```cd bin``` y coloque el comando:
+Para visualizar y acceder a Kiali en la versión para ambientes no productivos, vaya a la carpeta ```bin``` (ya que esta carpeta contiene el ejecutable de Kiali) con ```cd bin``` (que se encuentra dentro de la carpeta clonada ```Kubernetes-Seguridad-Istio\istio-1.10.3```) y coloque el comando:
 
 ```
 istioctl dashboard kiali
 ```
 
-Para acceder en las credenciales de usuario y contraseña coloque **admin**.
+Para acceder, en las credenciales de usuario y contraseña coloque **admin**.
 
 <p align=center><img src=".github/istioctl-login.png"></p>
 <br />
 
 ### Kiali para producción
+Para visualizar y acceder a Kiali en la versión para ambientes productivos, puede realizarlo de 2 formas:
+
+1. Vaya a la carpeta ```bin``` (ya que esta carpeta contiene el ejecutable de Kiali) con ```cd bin``` (que se encuentra dentro de la carpeta clonada ```Kubernetes-Seguridad-Istio\istio-1.10.3```) y coloque el comando:
+
+   ```
+   istioctl dashboard kiali
+   ```
+   
+   
+
 <br />
 
 
