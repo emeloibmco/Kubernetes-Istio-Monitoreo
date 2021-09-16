@@ -111,7 +111,7 @@ Para instalar la versión demo de Istio (ambientes no productivos), siga los pas
    istioctl install --set profile=demo
    ``` 
    
-   <p align=center><img src=".github/istioctl-install-demo.PNG"></p>
+   <p align=center><img width="600"src=".github/istioctl-install-demo.PNG"></p>
    <br />
 
 2. Habilite la inyección automática de Istio al Envoy Sidecar del clúster. Esto se realiza para un namespace determinado, en este caso use el namespace por defecto (```default```). Coloque el comando:
