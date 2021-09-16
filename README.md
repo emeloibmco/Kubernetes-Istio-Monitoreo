@@ -390,8 +390,8 @@ Una vez aplique el comando, obtendrá como respuesta ```http://localhost:puerto`
 Para visualizar y acceder a Kiali en la versión para ambientes productivos, puede realizarlo de 2 formas:
 <br />
 
-  * **Opción 1**
-  <br />
+  * **Opción 1:**
+  
   Vaya a la carpeta ```bin``` (ya que esta carpeta contiene el ejecutable de Kiali) con ```cd bin``` (que se encuentra dentro de la carpeta clonada ```Kubernetes-Seguridad-Istio\istio-1.10.3```) y coloque el comando:
 
   ```
@@ -401,8 +401,8 @@ Para visualizar y acceder a Kiali en la versión para ambientes productivos, pue
   Una vez aplique el comando, obtendrá como respuesta ```http://localhost:20001/kiali```. Si de forma automática no se abre esta URL en el navegador, colóquela de forma manual. Allí le aparecerá una ventana para acceder a Kiali. En las credenciales de acceso le piden un token del Kubernetes Service Account. Los pasos para obtener este token se presentarán más adelante.
   <br />
 
-  * **Opción 2**
-  <br />
+  * **Opción 2:**
+ 
   En el overview de su clúster visualice y copie el ```Ingress subdomain```. Posteriormente colóquelo en el navegador agregando al final \kiali y espere a que la ventana cargue.
 
   ```
