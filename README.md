@@ -117,7 +117,7 @@ Para instalar la versión demo de Istio (ambientes no productivos), siga los pas
    kubectl label namespace default istio-injection=enabled
    ```
 
-   <p align=center><img src=".github/istioctl-injection.png"></p>
+   <p align=center><img src=".github/istio-injection.png"></p>
    <br />
 <br />
 
@@ -140,7 +140,7 @@ Para instalar la versión para ambiente productivos de Istio, siga los pasos que
    kubectl label namespace default istio-injection=enabled
    ```
 
-   <p align=center><img src=".github/istioctl-injection.png"></p>
+   <p align=center><img src=".github/istio-injection.png"></p>
    <br />
 <br />
 
