@@ -208,7 +208,7 @@ Para este caso, la versión empleada de Kiali es la ```1.37.0```. Por otro lado,
 
 3. Asegúrese de que el operador de Kiali se encuentre instalado en el namespace ```kiali-operator``` y que el servidor de Kiali se encuentre en el namespace ```istio-system```.
    
-   <p align=center><img width="700" src=".github/Kiali-operator.PNG"></p>
+   <p align=center><img width="800" src=".github/Kiali-operator.PNG"></p>
    <br />
 
 
