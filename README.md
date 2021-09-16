@@ -234,6 +234,111 @@ Complete los siguientes pasos para configurar Prometheus a escala de producción
    <p align=center><img width="800" src=".github/prometheus-istio-system.PNG"></p>
    <br />
 
+3. En el pod de Prometehus agregue las siguientes reglas de registro:
+
+   ```powershell
+   groups:
+   - name: "istio.recording-rules"
+     interval: 5s
+     rules:
+     - record: "workload:istio_requests_total"
+       expr: |
+         sum without(instance, kubernetes_namespace, kubernetes_pod_name) (istio_requests_total)
+
+     - record: "workload:istio_request_duration_milliseconds_count"
+       expr: |
+         sum without(instance, kubernetes_namespace, kubernetes_pod_name) (istio_request_duration_milliseconds_count)
+
+     - record: "workload:istio_request_duration_milliseconds_sum"
+       expr: |
+         sum without(instance, kubernetes_namespace, kubernetes_pod_name) (istio_request_duration_milliseconds_sum)
+
+     - record: "workload:istio_request_duration_milliseconds_bucket"
+       expr: |
+         sum without(instance, kubernetes_namespace, kubernetes_pod_name) (istio_request_duration_milliseconds_bucket)
+
+     - record: "workload:istio_request_bytes_count"
+       expr: |
+         sum without(instance, kubernetes_namespace, kubernetes_pod_name) (istio_request_bytes_count)
+
+     - record: "workload:istio_request_bytes_sum"
+       expr: |
+         sum without(instance, kubernetes_namespace, kubernetes_pod_name) (istio_request_bytes_sum)
+
+     - record: "workload:istio_request_bytes_bucket"
+       expr: |
+         sum without(instance, kubernetes_namespace, kubernetes_pod_name) (istio_request_bytes_bucket)
+
+     - record: "workload:istio_response_bytes_count"
+       expr: |
+         sum without(instance, kubernetes_namespace, kubernetes_pod_name) (istio_response_bytes_count)
+
+     - record: "workload:istio_response_bytes_sum"
+       expr: |
+         sum without(instance, kubernetes_namespace, kubernetes_pod_name) (istio_response_bytes_sum)
+
+     - record: "workload:istio_response_bytes_bucket"
+       expr: |
+         sum without(instance, kubernetes_namespace, kubernetes_pod_name) (istio_response_bytes_bucket)
+
+     - record: "workload:istio_tcp_connections_opened_total"
+       expr: |
+         sum without(instance, kubernetes_namespace, kubernetes_pod_name) (istio_tcp_connections_opened_total)
+
+     - record: "workload:istio_tcp_connections_closed_total"
+       expr: |
+         sum without(instance, kubernetes_namespace, kubernetes_pod_name) (istio_tcp_connections_closed_total)
+
+     - record: "workload:istio_tcp_sent_bytes_total_count"
+       expr: |
+         sum without(instance, kubernetes_namespace, kubernetes_pod_name) (istio_tcp_sent_bytes_total_count)
+
+     - record: "workload:istio_tcp_sent_bytes_total_sum"
+       expr: |
+         sum without(instance, kubernetes_namespace, kubernetes_pod_name) (istio_tcp_sent_bytes_total_sum)
+
+     - record: "workload:istio_tcp_sent_bytes_total_bucket"
+       expr: |
+         sum without(instance, kubernetes_namespace, kubernetes_pod_name) (istio_tcp_sent_bytes_total_bucket)
+
+     - record: "workload:istio_tcp_received_bytes_total_count"
+       expr: |
+         sum without(instance, kubernetes_namespace, kubernetes_pod_name) (istio_tcp_received_bytes_total_count)
+
+     - record: "workload:istio_tcp_received_bytes_total_sum"
+       expr: |
+         sum without(instance, kubernetes_namespace, kubernetes_pod_name) (istio_tcp_received_bytes_total_sum)
+
+     - record: "workload:istio_tcp_received_bytes_total_bucket"
+       expr: |
+         sum without(instance, kubernetes_namespace, kubernetes_pod_name) (istio_tcp_received_bytes_total_bucket)
+   ```
+   <br />
+
+
+4. Establezca la ferederación jerárquica. Para ello edite el deployment de Prometheus agregando lo siguiente:
+
+   ```powershell
+   - job_name: 'istio-prometheus'
+     honor_labels: true
+     metrics_path: '/federate'
+     kubernetes_sd_configs:
+     - role: pod
+       namespaces:
+         names: ['istio-system']
+     metric_relabel_configs:
+     - source_labels: [__name__]
+       regex: 'workload:(.*)'
+       target_label: __name__
+       action: replace
+     params:
+       'match[]':
+       - '{__name__=~"workload:(.*)"}'
+       - '{__name__=~"pilot(.*)"}'
+   ```
+   <br />
+
+
 ## Despliegue de la aplicación :rocket:
 
 1. Aplicación bookinfo.
