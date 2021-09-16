@@ -13,7 +13,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 1. [Requisitos](#Requisitos-newspaper)
 2. [Configuración de Istio en IKS](#Configuración-de-Istio-en-IKS-gear)
 3. [Instalación de Istio en el Clúster](#Instalación-de-Istio-en-el-Clúster-cloud)
-4. [Instalación de Kiali en el Clúster](#Instalación-de-Kiali-en-el-Clúster-chart_with_upwards_trend)
+4. [Instalación de Kiali y Prometehus en el Clúster](#Instalación-de-Kiali-y-Prometehus-en-el-Clúster-chart_with_upwards_trend)
 5. [Despliegue de la aplicación](#Despliegue-de-la-aplicación-rocket)
 6. [Dashboard Kiali](#Dashboard-Kiali-computer)
 7. [Captura de datos en Kiali](#Captura-de-datos-en-Kiali-clipboard)
@@ -148,17 +148,25 @@ Para instalar la versión para ambiente productivos de Istio, siga los pasos que
 <br />
 
 
-## Instalación de Kiali en el Clúster :chart_with_upwards_trend:
-Kiali es uan consola de administración para Istio que permite controlar la malla de servicios. Para realizar la instalación de Kiali en el clúster se porporcionan dos opciones en esta documentación:
-* [Kiali demo](#Kiali-demo) para ambientes no productivos.
-* [Kiali para producción](#Kiali-para-producción).
+## Instalación de Kiali y Prometehus en el Clúster :chart_with_upwards_trend:
+Kiali es una consola de administración para Istio que permite controlar la malla de servicios. Kiali necesita recuperar datos y configuraciones de Istio, que se exponen a través de Prometheus y la API del clúster, por lo cual una vez instale Kiali deberá instalar Prometheus. Para realizar la instalación de Kiali en el clúster se proporcionan dos opciones en esta documentación:
+* [Kiali y Prometheus demo](#Kiali-y-Prometheus-demo) para ambientes no productivos.
+* [Kiali y Prometheus para producción](#Kiali-y-Prometheus-para-producción).
 <br />
 
-### Kiali demo
+### Kiali y Prometehus demo
+Para instalar la versión demo de Kiali y Prometehus siga los pasos que se muestran a continuación:
+<br />
+
+1. Para instalar Kiali en el clúster utilice el siguiente comando:
+
+```
+kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.10/samples/addons/kiali.yaml
+```
 
 <br />
 
-### Kiali para producción
+### Kiali y Prometehus para producción
 <br />
 
 <br />
@@ -168,7 +176,7 @@ Kiali es uan consola de administración para Istio que permite controlar la mall
 
 1. Aplicación bookinfo.
 
-   * El primer paso consiste en desplegar la aplicación de ejemplo Bookinfo que está en la carpeta ```samples``` del repositorio, usando el comando:
+   * El primer paso consiste en desplegar la aplicación de ejemplo Bookinfo que está en la carpeta ```samples``` del repositorio. Para ello, salga de la carpeta ```bin``` con el comando ```cd..``` y asegúrese de quedar en la ruta ```Kubernetes-Seguridad-Istio\istio-1.10.3``` donde se ubica la carpeta ```samples```. Luego utilice el comando el comando:
 
      ```
      kubectl apply -f samples/bookinfo/platform/kube/bookinfo.yaml
