@@ -191,7 +191,20 @@ Para instalar la versión de Kiali para ambientes productivos tenga en cuenta la
 | 1.7  | 1.22.1 to 1.25.x |
 | 1.6  | 1.18.1 to 1.21.x |
 
-<br />
+Para este caso, la versión empleada de Kiali es la ```1.37.0```. Por otro lado, para entornos de producción en Kubernetes, se debe instalar el ```Kiali Operator Helm Chart```. Para ello, complete los siguientes pasos:
+
+1. Cree un namespace en donde quedará instalado el ```kiali-operator```, utilice el comando:
+
+   ```
+   kubectl create namespace kiali-operator
+   ```
+   <br />
+
+2. Instale el ```kiali-operator``` en el namespace que caba de crear junto con el servidor de Kiali en el namespace del sistema isito. Asegúrese de tener instalado el comando helm (puede que deba cambiar de carpeta hasta la ubicación que contiene el ejecutable) y posteriomente coloque el comando:
+   ```
+   helm install --set cr.create=true --set cr.namespace=istio-system --namespace kiali-operator --repo https://kiali.org/helm-charts --version 1.37.0 kiali-operator kiali-operator 
+   ```
+   <br />
 
 <br />
 
