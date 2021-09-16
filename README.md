@@ -98,6 +98,7 @@ Para realizar la instalación de Istio en el clúster se porporcionan dos perfil
 Al momento de realizar este repositorio, la versión más reciente de Istio era la ```1.11```, pero al ser un lanzamiento reciente algunas de sus características y herramientas se ecnontraban en beta. Por este motivo, para la prueba que se presenta en esta documentación se utiliza la versión ```1.10.3``` para ambientes productivos y no productivos.
 
 Para ejecutar los comandos, dentro de la capeta clonada ```Kubernetes-Seguridad-Istio\istio-1.10.3``` muévase con el comando ```cd``` hasta la carpeta ```bin``` que contiene el ejecutable de istio y allí ejecute los comandos teniendo en cuenta el perfil que desea implementar.
+
 <br />
 
 ### Istio demo
