@@ -316,7 +316,7 @@ Complete los siguientes pasos para configurar Prometheus a escala de producción
    <br />
 
 
-4. Establezca la ferederación jerárquica. Para ello edite el deployment de Prometheus agregando lo siguiente:
+4. Establezca la federación jerárquica. Para ello edite el deployment de Prometheus agregando lo siguiente:
 
    ```powershell
    - job_name: 'istio-prometheus'
