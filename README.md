@@ -179,6 +179,18 @@ Para instalar la versión demo de Kiali y Prometheus siga los pasos que se muest
 <br />
 
 ### Kiali y Prometheus para producción
+Para instalar la versión de Kiali para ambientes productivos tenga en cuenta la versión de Istio empleada. En la siguiente tabla se muestra la compatbilidad entre versiones:
+<br />
+
+| ***Versión de Istio*** | ***Versión de Kiali*** |
+|     :---:      |     :---:      |
+| 1.11  | 1.38.1 or later |
+| 1.10  | 1.34.1 to 1.37.x |
+| 1.9  | 1.29.1 to 1.33.x |
+| 1.8  | 1.26.0 to 1.28.x |
+| 1.7  | 1.22.1 to 1.25.x |
+| 1.6  | 1.18.1 to 1.21.x |
+
 <br />
 
 <br />
@@ -442,6 +454,8 @@ Finalmente, Kiali mostrará tráfico entrante al servicio de mongodb.
 - [Autorización de servicios TCP Istio](https://archive.istio.io/v1.3/docs/tasks/security/authz-tcp/)
 
 - [Iniciación a Istio](https://cloud.ibm.com/docs/containers?topic=containers-istio-qs)
+
+- [Compatbilidad de versiones Istio y Kiali](https://kiali.io/documentation/latest/installation-guide/#_version_compatibility)
 <br />
 
 ## Autores :black_nib:
