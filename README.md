@@ -1,4 +1,4 @@
-# Aplicabilidad de Istio en un Clúster de Kubernetes - IBM Cloud ☁
+# Demostración de la aplicabilidad de Istio en un Clúster K8s ☁
 
 **Disclaimer**: Este repositorio contiene una copia de Istio, todos los archivos han sido descargados del [GitHub Oficial de Istio](https://github.com/istio/istio/releases) y pertenecen a sus respectivos autores.
 
@@ -55,6 +55,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
 2. Configuración del Cluster IKS.
    * Inicie sesión en *IBM Cloud* con el comando:
+   
    ```
    ibmcloud login --sso
    ```
@@ -64,6 +65,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
    <br />
 
    * Una vez ha iniciado sesión, configure el grupo de recursos y la región que está utilizando su clúster de Kubernetes. Para ello utilice el siguiente comando:
+   
    ```
    ibmcloud target -r <REGION> -g <GRUPO_RECURSOS>
    ```
@@ -71,12 +73,14 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
    <br />
 
    * Obtenga la lista de clústers de Kubernetes que hay en la cuenta establecida:
+   
    ```
    ibmcloud cs clusters
    ```
    <br />
 
    * Verifique el nombre del clúster (```<cluster_name>```) en el que va a trabajar y habilite el comando ```kubectl``` de la siguiente manera:
+   
    ```
    ibmcloud ks cluster config --cluster <cluster_name>
    ```
@@ -85,20 +89,24 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
 ## Instalación de Istio en el Clúster :cloud:
 
-### Istio demo
-1. Instalar Istio en el clúster
+Para realizar la instalación de Istio en el clúster se porporcionan dos métodos:
+a. [Istio demo](#Istio-demo) para ambientes no productivos.
+b. [Istio para producción](#Istio-para-producción).
+<br />
 
-   Para efectos de esta demo se define el perfil demo incluido en el repositorio. Usando el comando 
+Al momento de realizar este repositorio, la versión más reciente de Istio era la ```1.11```, pero al ser un lanzamiento reciente algunas de sus características y herramientas se ecnontraban en beta. Por este motivo, para la prueba que se presenta en esta documentación se utiliza la versión ```1.10.3``` para ambientes productivos y no productivos.
+<br />
+
+### Istio demo
+Para instalar la versión demo de Istio (ambientes no productivos), siga los pasos que se muestran a continuación:
+<br />
+
+1. Una vez ha iniciado sesión y seleccionado el clúster en l que va a trabajar, instale la versión demo de Istio con el comando:
+
    ```
    istioctl install --set profile=demo
    ``` 
-   o
-    ```
-   .\istioctl install --set profile=demo
-   ``` 
    
-   se instalará y configurará Istio en el clúster.
-
    <p align=center><img src=".github/istioctl-install.png"></p>
    <br />
 
@@ -115,7 +123,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 <br />
 
 ### Istio para producción
-
+<br />
 
 ## Instalación de Kiali en el Clúster :chart_with_upwards_trend:
 <br />
