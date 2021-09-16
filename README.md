@@ -38,7 +38,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
 ## Configuración de Istio en IKS :gear:
 
-1. Clone este repositorio y configure las variables de entorno del ambiente. Para ello, ubíquese en la carpeta clonada del repositorio y coloque: 
+1. Clone este repositorio y configure las variables de entorno del ambiente. Para ello, ubíquese en la carpeta clonada del repositorio y en la ruta ```Kubernetes-Seguridad-Istio\istio-1.10.3``` y coloque: 
 
    * Linux o OSX: 
    ```export PATH=$PWD/bin:$PATH```
@@ -81,8 +81,12 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
    ibmcloud ks cluster config --cluster <cluster_name>
    ```
    <br />
+   
 
-3. Instalar Istio en el clúster
+## Instalación de Istio en el Clúster :cloud:
+
+### Istio demo
+1. Instalar Istio en el clúster
 
    Para efectos de esta demo se define el perfil demo incluido en el repositorio. Usando el comando 
    ```
@@ -98,7 +102,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
    <p align=center><img src=".github/istioctl-install.png"></p>
    <br />
 
-4. Habilite la inyección automática de Istio al Envoy Sidecar del clúster
+2. Habilite la inyección automática de Istio al Envoy Sidecar del clúster
 
    Esto se realiza para un namespace determinado, en este caso use el namespace por defecto (```default```). Coloque el comando:
 
@@ -108,10 +112,9 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 
    <p align=center><img src=".github/istioctl-injection.png"></p>
    <br />
-   
-
-## Instalación de Istio en el Clúster :cloud:
 <br />
+
+### Istio para producción
 
 
 ## Instalación de Kiali en el Clúster :chart_with_upwards_trend:
