@@ -105,7 +105,7 @@ Para ejecutar los comandos, dentro de la capeta clonada ```Kubernetes-Seguridad-
 Para instalar la versión demo de Istio (ambientes no productivos), siga los pasos que se muestran a continuación:
 <br />
 
-1. Una vez ha iniciado sesión y seleccionado el clúster en l que va a trabajar, instale la versión demo de Istio con el comando:
+1. Una vez ha iniciado sesión y seleccionado el clúster en el que va a trabajar, instale la versión demo de Istio con el comando:
 
    ```
    istioctl install --set profile=demo
@@ -128,7 +128,7 @@ Para instalar la versión demo de Istio (ambientes no productivos), siga los pas
 Para instalar la versión para ambiente productivos de Istio, siga los pasos que se muestran a continuación:
 <br />
 
-1. Una vez ha iniciado sesión y seleccionado el clúster en l que va a trabajar, instale la versión demo de Istio con el comando:
+1. Una vez ha iniciado sesión y seleccionado el clúster en el que va a trabajar, instale la versión default de Istio con el comando:
 
    ```
    istioctl install --set profile=default
