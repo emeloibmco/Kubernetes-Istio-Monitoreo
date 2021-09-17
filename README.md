@@ -583,6 +583,11 @@ Finalmente, Kiali mostrará tráfico entrante al servicio de mongodb.
 - [Iniciación a Istio](https://cloud.ibm.com/docs/containers?topic=containers-istio-qs)
 
 - [Compatbilidad de versiones Istio y Kiali](https://kiali.io/documentation/latest/installation-guide/#_version_compatibility)
+
+- [Kiali para ambientes de producción](https://kiali.io/documentation/v1.40/installation-guide/#_helm_chart)
+
+- [Prometheus para escala de producción](https://istio.io/v1.10/docs/ops/best-practices/observability/#using-prometheus-for-production-scale-monitoring)
+
 <br />
 
 ## Autores :black_nib:
