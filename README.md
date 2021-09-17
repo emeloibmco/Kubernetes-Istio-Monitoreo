@@ -11,7 +11,7 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 ## Tabla de contenido 📑
 
 1. [Requisitos](#Requisitos-newspaper)
-2. [Configuración de variables de entorno y acceso al clúster](#Configuración-de-variables-de-entorno-y-acceso-al-clúster-IKS-gear)
+2. [Configuración de variables de entorno y acceso al clúster](#Configuración-de-variables-de-entorno-y-acceso-al-clúster-gear)
 3. [Instalación de Istio en el Clúster](#Instalación-de-Istio-en-el-Clúster-cloud)
 4. [Instalación de Kiali y Prometheus en el Clúster](#Instalación-de-Kiali-y-Prometheus-en-el-Clúster-chart_with_upwards_trend)
 5. [Despliegue de la aplicación](#Despliegue-de-la-aplicación-rocket)
