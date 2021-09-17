@@ -448,7 +448,7 @@ Para obtener el token de acceso realice lo siguiente:
 
 ## Captura de datos en Kiali :clipboard:
 
-Una vez a accedido a Kiali, seleccione en el panel izquierdo ```Graph``` y filtre por el namespace, en este caso Default. Como no se han generado solicitudes a la aplicación y el resultado de la gráfica será:  **Empty Graph**.
+Una vez a accedido a Kiali, seleccione en el panel izquierdo ```Graph``` y filtre por el namespace en el que desplegó la aplicación. Como no se han generado solicitudes a la aplicación y el resultado de la gráfica será:  **Empty Graph**.
 
 Para generar una cantidad considerable de solicitudes y así poder visualizar el tráfico en el Service Mesh, en una nueva ventana use el comando:
 
@@ -496,14 +496,21 @@ done
 ```
 <br />
 
-Revise nuevamente la ventana que muestra Kiali y asegúrese de tener seleccionado:
-* En el panel lateral izquierdo ➡ Graph. 
-* En la pestaña Display ➡ sección Show Edge Labels ➡ Request Percentage.
-* En la pestaña Display ➡ sección Show ➡ seleccione Compress Hidden, Node Names, Service Nodes y Traffic Animation.
+Revise nuevamente la ventana que muestra Kiali y asegúrese de tener seleccionado lo siguiente según la versión de Kiali implementada:
 
-<p align=center><img src=".github/kiali-graph.png"></p>
-<br />
+**1. Kiali demo**
+  * En el panel lateral izquierdo ➡ Graph. 
+  * En la pestaña Display ➡ sección Show Edge Labels ➡ Request Percentage.
+  * En la pestaña Display ➡ sección Show ➡ seleccione Compress Hidden, Node Names, Service Nodes y Traffic Animation.
 
+  <p align=center><img src=".github/kiali-graph.png"></p>
+  <br />
+
+**1. Kiali para producción**
+  * En el panel lateral izquierdo ➡ Graph. 
+  * En la pestaña Display ➡ sección Show Edge Labels ➡ Request Distribution.
+  * En la pestaña Display ➡ sección Show ➡ seleccione Compressed Hide, Idle Edges, Service Nodes y Traffic Animation.
+  <br />
 
 
 ## Despliegue de servicio de base de datos MongoDB :books:
