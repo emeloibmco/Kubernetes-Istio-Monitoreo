@@ -411,6 +411,10 @@ Para visualizar y acceder a Kiali en la versión para ambientes productivos, pue
   ```
   <Ingress subdomain>/kiali
   ```
+  
+  <p align=center><img src=".github/Overview_Kubernetes.PNG"></p>
+  <br />
+  
   En las credenciales de acceso le piden un token del Kubernetes Service Account. Los pasos para obtener este token se presentarán más adelante.
   <br />
   
