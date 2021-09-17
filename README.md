@@ -183,7 +183,7 @@ Para instalar la versión demo de Kiali y Prometheus siga los pasos que se muest
 <br />
 
 ### Kiali y Prometheus para producción
-Para instalar la versión de Kiali para ambientes productivos tenga en cuenta la versión de Istio empleada. En la siguiente tabla se muestra la compatbilidad entre versiones:
+Para instalar la versión de Kiali para ambientes productivos tenga en cuenta la versión de Istio empleada. En la siguiente tabla se muestra la compatibilidad entre versiones:
 <br />
 
 | ***Versión de Istio*** | ***Versión de Kiali*** |
