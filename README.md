@@ -498,7 +498,7 @@ done
 
 Revise nuevamente la ventana que muestra Kiali y asegúrese de tener seleccionado lo siguiente según la versión de Kiali implementada:
 
-**1. Kiali demo**
+### Kiali demo
   * En el panel lateral izquierdo ➡ Graph. 
   * En la pestaña Display ➡ sección Show Edge Labels ➡ Request Percentage.
   * En la pestaña Display ➡ sección Show ➡ seleccione Compress Hidden, Node Names, Service Nodes y Traffic Animation.
@@ -506,7 +506,7 @@ Revise nuevamente la ventana que muestra Kiali y asegúrese de tener seleccionad
   <p align=center><img src=".github/kiali-graph.png"></p>
   <br />
 
-**1. Kiali para producción**
+### Kiali para producción
   * En el panel lateral izquierdo ➡ Graph. 
   * En la pestaña Display ➡ sección Show Edge Labels ➡ Request Distribution.
   * En la pestaña Display ➡ sección Show ➡ seleccione Compressed Hide, Idle Edges, Service Nodes y Traffic Animation.
