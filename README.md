@@ -233,7 +233,7 @@ Complete los siguientes pasos para configurar Prometheus a escala de producción
    <p align=center><img width="950" src=".github/prometheus-production.PNG"></p>
    <br />
    
-   > NOTA: En caso de que el enlace falle al momento de realizar la instalación, en el respositorio puede encontrar el archivo ```prometheus.yaml```que contiene las configuraciones de federación jerárquica y reglas para ambientes a escala de producción.  
+   > NOTA: En caso de que el enlace falle al momento de realizar la instalación, en el respositorio puede encontrar el archivo ```prometheus.yaml```que contiene las configuraciones de federación jerárquica y reglas para ambientes a escala de producción. Por lo tanto, puede utilizar ese archivo para desplegar Prometheus a escala de producción. 
 
 2. Verifique que Prometheus se ha instalado en el namespace ```istio-system```. 
 
