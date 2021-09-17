@@ -418,7 +418,7 @@ Para visualizar y acceder a Kiali en la versión para ambientes productivos, pue
   En las credenciales de acceso le piden un token del Kubernetes Service Account. Los pasos para obtener este token se presentarán más adelante.
   <br />
   
-  <p align=center><img src=".github/ventana-kiali2.PNG"></p>
+  <p align=center><img src=".github/ventana-kiali-overview.PNG"></p>
   <br />
  
 Para obtener el token de acceso realice lo siguiente:
