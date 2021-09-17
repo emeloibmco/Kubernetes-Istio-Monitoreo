@@ -406,7 +406,7 @@ Para visualizar y acceder a Kiali en la versión para ambientes productivos, pue
 
 * **Opción 2:**
  
-  En el overview de su clúster visualice y copie el ```Ingress subdomain```. Posteriormente colóquelo en el navegador agregando al final \kiali y espere a que la ventana cargue.
+  En el overview de su clúster visualice y copie el ```Ingress subdomain```. Posteriormente colóquelo en el navegador agregando al final ```/kiali``` y espere a que la ventana cargue.
 
   ```
   <Ingress subdomain>/kiali
