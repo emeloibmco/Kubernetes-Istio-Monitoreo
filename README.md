@@ -418,7 +418,7 @@ Para visualizar y acceder a Kiali en la versión para ambientes productivos, pue
   En las credenciales de acceso le piden un token del Kubernetes Service Account. Los pasos para obtener este token se presentarán más adelante.
   <br />
   
-  <p align=center><img src=".github/ventana-kiali.PNG"></p>
+  <p align=center><img src=".github/ventana-kiali2.PNG"></p>
   <br />
  
 Para obtener el token de acceso realice lo siguiente:
@@ -514,7 +514,10 @@ Revise nuevamente la ventana que muestra Kiali y asegúrese de tener seleccionad
   * En el panel lateral izquierdo ➡ Graph. 
   * En la pestaña Display ➡ sección Show Edge Labels ➡ Request Distribution.
   * En la pestaña Display ➡ sección Show ➡ seleccione Compressed Hide, Idle Edges, Service Nodes y Traffic Animation.
+  
+  <p align=center><img src=".github/kiali-graph-production.PNG"></p>
   <br />
+  
 
 
 ## Despliegue de servicio de base de datos MongoDB :books:
