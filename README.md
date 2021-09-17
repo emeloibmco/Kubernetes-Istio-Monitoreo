@@ -576,8 +576,6 @@ Finalmente, Kiali mostrará tráfico entrante al servicio de mongodb.
 
 - [IBM Cloud Docs Istio](https://cloud.ibm.com/docs/containers?topic=containers-istio-qs)
 
-- [Manejo de Políticas con Istio](https://istio.io/docs/tasks/policy-enforcement/denial-and-list/)
-
 - [Autorización de servicios TCP Istio](https://archive.istio.io/v1.3/docs/tasks/security/authz-tcp/)
 
 - [Iniciación a Istio](https://cloud.ibm.com/docs/containers?topic=containers-istio-qs)
