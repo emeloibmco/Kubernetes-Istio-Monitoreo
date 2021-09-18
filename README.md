@@ -14,13 +14,14 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 2. [Configuración de variables de entorno y acceso al clúster](#Configuración-de-variables-de-entorno-y-acceso-al-clúster-gear)
 3. [Instalación de Istio en el Clúster](#Instalación-de-Istio-en-el-Clúster-cloud)
 4. [Instalación de Kiali y Prometheus en el Clúster](#Instalación-de-Kiali-y-Prometheus-en-el-Clúster-chart_with_upwards_trend)
-5. [Despliegue de la aplicación](#Despliegue-de-la-aplicación-rocket)
-6. [Dashboard Kiali](#Dashboard-Kiali-computer)
-7. [Captura de datos en Kiali](#Captura-de-datos-en-Kiali-clipboard)
-8. [Despliegue de servicio de base de datos MongoDB](#Despliegue-de-servicio-de-base-de-datos-MongoDB-books)
-9. [Definición de políticas de acceso a la base de datos](#Definición-de-políticas-de-acceso-a-la-base-de-datos-closed_lock_with_key)
-10. [Referencias](#Referencias-mag)
-11. [Autores](#Autores-black_nib)
+5. [Instalación y prueba de Jaeger](#Instalación-y-prueba-de-Jaeger-tophat)
+6. [Despliegue de la aplicación](#Despliegue-de-la-aplicación-rocket)
+7. [Dashboard Kiali](#Dashboard-Kiali-computer)
+8. [Captura de datos en Kiali](#Captura-de-datos-en-Kiali-clipboard)
+9. [Despliegue de servicio de base de datos MongoDB](#Despliegue-de-servicio-de-base-de-datos-MongoDB-books)
+10. [Definición de políticas de acceso a la base de datos](#Definición-de-políticas-de-acceso-a-la-base-de-datos-closed_lock_with_key)
+11. [Referencias](#Referencias-mag)
+12. [Autores](#Autores-black_nib)
 <br />
 
 ## Requisitos :newspaper:
@@ -239,6 +240,52 @@ Complete los siguientes pasos para configurar Prometheus a escala de producción
 
    <p align=center><img width="800" src=".github/prometheus-istio-system.PNG"></p>
 <br />
+
+## Instalación y prueba de Jaeger :tophat:
+
+### Instalación del operador de Jaeger
+
+Jaeger es un sistema de software open source que sirve para detectar operaciones entre los servicios distribuidos. Se utiliza para supervisar entornos complejos de microservicios y solucionar los problemas asociados a ellos. Para trabaja Jaeger en un ambiente de producción, lo más recomendable es instalar el operador Jaeger, a continuación se detallan los pasos para instalar Jaeger en su clúster de Kubernetes, utilizando las plantillas utilizadas en la documentación oficial de Jaeger:
+
+1.  Cree la definición de recurso personalizada requerida por el operador de Jaeger:
+
+```
+kubectl create -f https://raw.githubusercontent.com/jaegertracing/jaeger-operator/master/deploy/crds/jaegertracing.io_jaegers_crd.yaml
+```
+2. A continuación, cree una cuenta de servicio , un rol y una vinculación de roles para el control de acceso basado en roles:
+
+```
+kubectl create -f https://raw.githubusercontent.com/jaegertracing/jaeger-operator/master/deploy/service_account.yaml
+kubectl create -f https://raw.githubusercontent.com/jaegertracing/jaeger-operator/master/deploy/role.yaml
+kubectl create -f https://raw.githubusercontent.com/jaegertracing/jaeger-operator/master/deploy/role_binding.yaml
+```
+3. Finalmente, implemente el operador Jaeger:
+
+```
+kubectl create -f https://raw.githubusercontent.com/jaegertracing/jaeger-operator/master/deploy/operator.yaml
+```
+4. Aunque ya se tenga instalado el operador, es necesario crear un recurso que describa la instancia de Jaeger:
+
+```
+kubectl apply -f - <<EOF
+apiVersion: jaegertracing.io/v1
+kind: Jaeger
+metadata:
+  name: simplest
+EOF
+```
+5. Para validar que Jaeger está funcionando correctamente, ejecute el siguiente comando y verifique si puede acceder a la interfaz de usuario:
+
+```
+kubectl port-forward $(kubectl get pods -l=app="jaeger" -o name) 16686:16686
+```
+
+Por ahora el unico servicio que debe ver es el de Jaeger Query, ahora procederemos a implementar la aplicación que deseamos monitorear.
+
+### Implementación y monitoreo de una aplicación de prueba
+
+
+
 
 
 ## Despliegue de la aplicación :rocket:
