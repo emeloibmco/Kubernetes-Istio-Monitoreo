@@ -300,7 +300,7 @@ nano ./frontend/deploy_frontend.yaml
 ```
 O el comando que le permita editar el archivo. Cambie la dirección ```username``` por su usuario de docker.
 
- <p align=center><img width="950" src=".github/console1.PNG"></p>
+ <p align=center><img width="950" src=".github/console1.png"></p>
  <br />
  
  Pulse Ctrl+S para guardar los cambios. Y Ctrl+X para salir del editor. 
@@ -312,7 +312,7 @@ nano ./backend/deploy_backend.yaml
 ```
 O el comando que le permita editar el archivo. Cambie la dirección ```username``` por su usuario de docker.
 
- <p align=center><img width="950" src=".github/console2.PNG"></p>
+ <p align=center><img width="950" src=".github/console2.png"></p>
  <br />
  
  4. A continuación se creará la imagen en Docker, ejecute los siguiente comandos:
