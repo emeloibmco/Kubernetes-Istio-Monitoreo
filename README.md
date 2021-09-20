@@ -280,10 +280,104 @@ EOF
 kubectl port-forward $(kubectl get pods -l=app="jaeger" -o name) 16686:16686
 ```
 
+ <p align=center><img width="950" src=".github/openjaeger.PNG"></p>
+ <br />
 Por ahora el unico servicio que debe ver es el de Jaeger Query, ahora procederemos a implementar la aplicación que deseamos monitorear.
+ 
 
 ### Implementación y monitoreo de una aplicación de prueba
+Dicha aplicación ha sido copiada del siguiente [tutorial](https://www.digitalocean.com/community/tutorials/how-to-implement-distributed-tracing-with-jaeger-on-kubernetes) y consiste en una aplicación sencilla que será un contador de visitas cuyo valor aumenta cada vez que se realiza un llamado al frontend. Para simular problemas de rendimiento, incluye una función de suspensión aleatoria que se ejecuta cada vez que el frontend envía una GET solicitud al backend. Esta aplicación además incluye la configuración necesaria de OpenTracing que necesita Jaeger para monitorear la aplicación. A continuación se detallan los pasos para desplegar la aplicación en el clúster de Kubernetes:
 
+1. Dirijase a la carpeta ```sammy-jaeger``` que se encuentra en la carpeta clonada de este repositorio. A continuación asegurese que haya iniciado sesión en DockerHub con el siguiente comando:
+
+```
+docker login --username=your_username --password=your_password
+```
+2. Ejecute 
+
+```
+nano ./frontend/deploy_frontend.yaml
+```
+O el comando que le permita editar el archivo. Cambie la dirección ```username``` por su usuario de docker.
+
+ <p align=center><img width="950" src=".github/console1.PNG"></p>
+ <br />
+ 
+ Pulse Ctrl+S para guardar los cambios. Y Ctrl+X para salir del editor. 
+ 
+ 3. Ejecute 
+
+```
+nano ./backend/deploy_backend.yaml
+```
+O el comando que le permita editar el archivo. Cambie la dirección ```username``` por su usuario de docker.
+
+ <p align=center><img width="950" src=".github/console2.PNG"></p>
+ <br />
+ 
+ 4. A continuación se creará la imagen en Docker, ejecute los siguiente comandos:
+(Recuerde cambiar username por su usuario de DockerHub)
+
+Para crear el backend:
+ 
+ ```
+docker build -t username/do-visit-counter-backend:v2 ./backend
+docker push username/do-visit-counter-backend:v2
+ ```
+Para crear el frontend:
+
+```
+docker build -t username/do-visit-counter-frontend:v2 ./frontend
+docker push username/do-visit-counter-frontend:v2
+
+```
+ 5. Ahora enviaremos la aplicación al clúster de kubernetes:
+ 
+ ```
+kubectl apply -f ./frontend/deploy_frontend.yaml
+kubectl apply -f ./backend/deploy_backend.yaml
+
+ ```
+6. Para abrir la aplicación ejecute:
+
+```
+kubectl port-forward $(kubectl get pods -l=app="do-visit-counter-frontend" -o name) 8000:8000
+```
+
+ <p align=center><img width="950" src=".github/openapp.PNG"></p>
+ <br />
+ 
+7. Abra la aplicación desde el browser con la dirección http://localhost:8000.
+
+ <p align=center><img width="950" src=".github/app.PNG"></p>
+ <br />
+ 
+En otra terminal no olvide estar corriendo la aplicación de Jaeger, abra la consola de Jaeger con la dirección http://localhost:16686. Debes poder visualizar el servicio ```service``` que corresponde a la aplicación desplegada.
+
+ <p align=center><img width="950" src=".github/jaeger.PNG"></p>
+ <br />
+
+8. A continuación en otra terminal ejecute solicitudes a la aplicación para posteriormente observar el monitoreo.
+
+```
+for i in 0 1 2 3 4 5 6 7 8 9; do curl localhost:8000; done
+```
+9. Una vez concluido el ciclo del paso anterior, ingrese a la consola de Jaeger y complete lo siguiente:
+
+* ```Service```: service
+* ```Operation```: Puede escoger cualquiera de los servicio de la aplicación ```hello_world``` o ```counter```. O en este caso escogeremos la opción ```all``` para visualizar ambos servicios.
+* ```Tags```: Esta opción le permite filtrar por la respuesta que fue entregada al cliente al momento de hacer la solicitud a la aplicación. Ejm: http.status_code=200.
+* ```Lookback```: Puede elegir visualizar las solicitudes hechas en las útimas horas, según necesite puede elegir entre un rango de la última hora y las últimas 48 horas.
+* ```Max Duration/Min Duration ```: Debido a que Jaeger le entrega el tiempo en que tardo la aplicación en responder a la solictud, usted puede filtrar entre los tiempos que haya tardado, que sean de su interes. 
+* ```Limit Results```: Con esta opción indique a Jaeger cuantos resultados desea listar en el monitoreo que va a realizar.
+
+Finalmente de click en ``` Find Traces``` para que se muestren los resultados. En el caso de la aplicación de ejemplo, usted podrá visualizar una primera gráfica donde se comparan las solicitudes realizadas de acuerdo a su tiempo de respuesta. Y posteriormente un resumen del tiempo y la respuesta de cada solicitud realizada por el cliente.
+
+ <p align=center><img width="950" src=".github/monitoreo.gif"></p>
+ <br />
+
+ 
+ 
 
 
 
