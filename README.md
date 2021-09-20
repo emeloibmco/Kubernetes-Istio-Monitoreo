@@ -349,7 +349,7 @@ kubectl port-forward $(kubectl get pods -l=app="do-visit-counter-frontend" -o na
  
 7. Abra la aplicación desde el browser con la dirección http://localhost:8000.
 
- <p align=center><img width="950" src=".github/app.PNG"></p>
+ <p align=center><img width="700" src=".github/app.PNG"></p>
  <br />
  
 En otra terminal no olvide estar corriendo la aplicación de Jaeger, abra la consola de Jaeger con la dirección http://localhost:16686. Debes poder visualizar el servicio ```service``` que corresponde a la aplicación desplegada.
