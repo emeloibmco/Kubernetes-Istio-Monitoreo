@@ -285,7 +285,7 @@ kubectl port-forward $(kubectl get pods -l=app="jaeger" -o name) 16686:16686
 Por ahora el unico servicio que debe ver es el de Jaeger Query, ahora procederemos a implementar la aplicación que deseamos monitorear.
  
 
-### Implementación y monitoreo de una aplicación de prueba
+### Implementación y monitoreo de una aplicación de prueba en Python
 Dicha aplicación ha sido copiada del siguiente [tutorial](https://www.digitalocean.com/community/tutorials/how-to-implement-distributed-tracing-with-jaeger-on-kubernetes) y consiste en una aplicación sencilla que será un contador de visitas cuyo valor aumenta cada vez que se realiza un llamado al frontend. Para simular problemas de rendimiento, incluye una función de suspensión aleatoria que se ejecuta cada vez que el frontend envía una GET solicitud al backend. Esta aplicación además incluye la configuración necesaria de OpenTracing que necesita Jaeger para monitorear la aplicación. A continuación se detallan los pasos para desplegar la aplicación en el clúster de Kubernetes:
 
 1. Dirijase a la carpeta ```sammy-jaeger``` que se encuentra en la carpeta clonada de este repositorio. A continuación asegurese que haya iniciado sesión en DockerHub con el siguiente comando:
@@ -376,10 +376,110 @@ Finalmente de click en ``` Find Traces``` para que se muestren los resultados. E
  <p align=center><img width="950" src=".github/monitoreo.gif"></p>
  <br />
 
+### Implementación y monitoreo de una aplicación de prueba en Java - NodeJs
+Dicha aplicación ha sido copiada del siguiente [tutorial](https://tracing.cloudnative101.dev/docs/ocp-jaeger.html) y consiste en una aplicación que consta de dos servicios (servicio-a y servicio-b), el servicio-a envia una petición de saludo al servicio-b el cual constesta el saludo con el parametro de nombre ingresado por el cliente al momentode realizar la solicitud al servicio-b, esta aplicación tambien incluye una función de suspensión que se ejecuta cada tres solicitudes realizadas al servicio-a. Esta aplicación además incluye la configuración necesaria de OpenTracing que necesita Jaeger para monitorear la aplicación. A continuación se detallan los pasos para desplegar la aplicación en el clúster de Kubernetes:
+
+1. Dirijase a la carpeta ```lab-jaeger-java``` o  ```lab-jaeger-nodejs```, dependiendo de cual de las dos quiera ejecutar, que se encuentra en la carpeta clonada de este repositorio. A continuación asegurese que haya iniciado sesión en DockerHub con el siguiente comando:
+
+```
+docker login --username=your_username --password=your_password
+```
+2. Ejecute 
+
+```
+cd solution
+```
  
+ 3. A continuación se creará la imagen en Docker, ejecute los siguiente comandos:
+(Recuerde cambiar username por su usuario de DockerHub)
+
+Para crear el servicio-a:
  
+ ```
+docker build -t username/service-a:v1 ./service-a
+docker push username/service-a:v1
+ ```
+Para crear el servicio-b:
+
+```
+docker build -t username/service-b:v1 ./service-b
+docker push username/service-b:v1
+
+```
+
+4. Regrese a la carpeta principal del proyecto y ejecute:
+
+```
+cd lab-jaeger-ocp
+```
+5. A continuación, ejecute el siguiente comando para editar el archivo de configuración ```jaeger-java.yaml``` o ```jaeger-nodejs.yaml```:
+
+```
+nano jaeger-nodejs.yaml
+```
+O el comando que le permita editar el archivo. Una vez ingrese al archivo cambie el ```username``` por su usuario de DockerHub, agregue la extensión :v1 al nombre de la imagen y el ```value``` del ```JAEGER_ENDPOINT``` establezcalo en : "http://simplest-collector:14268/api/traces". Realice esto para el deployment de ambos servicios.
+
+<p align=center><img width="950" src=".github/service-a.PNG"></p>
+ <br />
+
+<p align=center><img width="950" src=".github/service-b.PNG"></p>
+ <br />
+
+Pulse Ctrl+S para guardar los cambios. Y Ctrl+X para salir del editor. 
+
+6. Ahora enviaremos la aplicación al clúster de kubernetes:
+ 
+ ```
+kubectl apply -f ./jaeger-nodejs.yaml
+
+ ```
+7. Para abrir la aplicación ejecute:
+
+```
+kubectl port-forward $(kubectl get pods -l=app="service-a" -o name) 8080:8080
+```
+
+ <p align=center><img width="950" src=".github/openapp2.PNG"></p>
+ <br />
+ 
+7. Abra la aplicación desde el browser con la dirección http://localhost:8080/sayHello/<nombre>.
+
+ <p align=center><img width="700" src=".github/app2.PNG"></p>
+ <br />
+ 
+En otra terminal no olvide estar corriendo la aplicación de Jaeger, abra la consola de Jaeger con la dirección http://localhost:16686. Debes poder visualizar el servicio ```service-a``` y ```service-b```` que corresponde a la aplicación desplegada. Elija visualizar ```service-a```y evidencia traza correspondiente a la solicitud que realizo previamente, observando su comnicación con el servicio-b, el tiempo de respuesta y tipo de solicitud realizada.
+ 
+ <p align=center><img width="700" src=".github/jaeger1.gif"></p>
+ <br />
 
 
+8. A continuación ejecute una solicitud de error:
+```
+ curl http://localhost:8080/error -I HTTP/1.1 500
+```
+ Y visualice la traza en Jaeger.
+ 
+ <p align=center><img width="700" src=".github/jaeger1.gif"></p>
+ <br /> 
+
+ 
+ 
+9. Ejecute el siguiente ciclo para enviar varias solicitudes a la aplicación:
+
+```
+for i in 0 1 2 3 4 5 6 7 8 9; do curl localhost:8080/sayHello/<nombre>; done
+```
+Una vez concluido el ciclo anterior, ingrese a la consola de Jaeger y visualice las distintas trazas, con el tiempo de respuesta y detalle.
+
+ <p align=center><img width="950" src=".github/jaeger3.gif"></p>
+ <br />
+
+ 10. Finalmente en la consola de Jaeger, ingrese a System Architecure > DAG y visualice la arquitectura de la aplicación.
+ 
+ <p align=center><img width="950" src=".github/jaeger4.PNG"></p>
+ <br />
+ 
+ 
 
 
 ## Despliegue de la aplicación :rocket:
