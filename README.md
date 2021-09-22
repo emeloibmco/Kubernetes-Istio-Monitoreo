@@ -417,7 +417,9 @@ cd lab-jaeger-ocp
 ```
 nano jaeger-nodejs.yaml
 ```
-O el comando que le permita editar el archivo. Una vez ingrese al archivo cambie el ```username``` por su usuario de DockerHub, agregue la extensión :v1 al nombre de la imagen y el ```value``` del ```JAEGER_ENDPOINT``` establezcalo en : "http://simplest-collector:14268/api/traces". Realice esto para el deployment de ambos servicios.
+O el comando que le permita editar el archivo.
+
+Una vez ingrese al archivo cambie el ```username``` por su usuario de DockerHub, agregue la extensión :v1 al nombre de la imagen y el ```value``` del ```JAEGER_ENDPOINT``` establezcalo en : "http://simplest-collector:14268/api/traces". Realice esto para el deployment de ambos servicios.
 
 <p align=center><img width="950" src=".github/service-a.PNG"></p>
  <br />
@@ -442,12 +444,12 @@ kubectl port-forward $(kubectl get pods -l=app="service-a" -o name) 8080:8080
  <p align=center><img width="950" src=".github/openapp2.PNG"></p>
  <br />
  
-7. Abra la aplicación desde el browser con la dirección http://localhost:8080/sayHello/<nombre>.
+7. Abra la aplicación desde el browser con la dirección http://localhost:8080/sayHello/nombre.
 
  <p align=center><img width="700" src=".github/app2.PNG"></p>
  <br />
  
-En otra terminal no olvide estar corriendo la aplicación de Jaeger, abra la consola de Jaeger con la dirección http://localhost:16686. Debes poder visualizar el servicio ```service-a``` y ```service-b```` que corresponde a la aplicación desplegada. Elija visualizar ```service-a```y evidencia traza correspondiente a la solicitud que realizo previamente, observando su comnicación con el servicio-b, el tiempo de respuesta y tipo de solicitud realizada.
+En otra terminal no olvide estar corriendo la aplicación de Jaeger, abra la consola de Jaeger con la dirección http://localhost:16686. Debes poder visualizar el servicio ```service-a``` y ```service-b``` que corresponde a la aplicación desplegada. Elija visualizar ```service-a``` y evidencie la traza correspondiente a la solicitud que realizo previamente, observando su comunicación con el servicio-b, el tiempo de respuesta y tipo de solicitud realizada.
  
  <p align=center><img width="700" src=".github/jaeger1.gif"></p>
  <br />
@@ -459,7 +461,7 @@ En otra terminal no olvide estar corriendo la aplicación de Jaeger, abra la con
 ```
  Y visualice la traza en Jaeger.
  
- <p align=center><img width="700" src=".github/jaeger1.gif"></p>
+ <p align=center><img width="700" src=".github/jaeger2.gif"></p>
  <br /> 
 
  
