@@ -814,14 +814,16 @@ Finalmente, Kiali mostrará tráfico entrante al servicio de mongodb.
 
 ## Instalación de Grafana para producción :bar_chart:
 Grafana es una herramienta que permite analizar y visualizar métricas. Cuando se trata de monitorear un clúster en producción, el trabajar Prometheus y Grafana en conjunto se convierte en una excelente solución. Para este caso, se emplea el ```prometheus-operator```, diseñado para facilitar la implementación y gestión de Prometheus. Al instalar el operador como se inidica en este repositorio también instalará Grafana. Complete los siguientes pasos:
+<br />
 
 1. Asegúrese de iniciar sesión, configurar la región y grupo de recursos y seleccionar el clúster de Kubernetes en el que desea instalar Grafana. Para esto, recuerde seguir los pasos de *acceso al clúster* en el ítem 2 que se indica en el paso [Configuración de variables de entorno y acceso al clúster](#Configuración-de-variables-de-entorno-y-acceso-al-clúster-gear)
-
+<br />
 
 2. Clone el repositorio ```https://github.com/prometheus-operator/kube-prometheus```. Para ello coloque el comando:
 ```
 git clone https://github.com/prometheus-operator/kube-prometheus.git
 ```
+<br />
 
 <p align=center><img src=".github/1_graf_clonar_repo.PNG"></p>
 <br />
@@ -830,11 +832,13 @@ git clone https://github.com/prometheus-operator/kube-prometheus.git
 ```
 cd kube-prometheus
 ```
+<br />
 
 4. Cree una namespace para la instalación del operador junto con las definciones de recursos personalizadas que se necesitan. Para ello coloque:
 ```
 kubectl create -f manifests/setup
 ```
+<br />
 
 <p align=center><img src=".github/2_graf_namespace.PNG"></p>
 <br />
@@ -843,6 +847,7 @@ kubectl create -f manifests/setup
 ```
 kubectl get ns monitoring
 ```
+<br />
 
 <p align=center><img src=".github/3_graf_verificar_estado_ns.PNG"></p>
 <br />
@@ -851,6 +856,7 @@ kubectl get ns monitoring
 ```
 kubectl get pods -n monitoring
 ```
+<br />
 
 <p align=center><img src=".github/5_graf_pod_prometheus.PNG"></p>
 <br />
@@ -859,6 +865,7 @@ kubectl get pods -n monitoring
 ```
 kubectl create -f manifests/
 ```
+<br />
 
 <p align=center><img src=".github/6_graf_instalar_grafana.PNG"></p>
 <br />
@@ -867,6 +874,7 @@ kubectl create -f manifests/
 ```
 kubectl get pods -n monitoring
 ```
+<br />
 
 <p align=center><img src=".github/7_graf_ver_pods.PNG"></p>
 <br />
@@ -875,6 +883,7 @@ kubectl get pods -n monitoring
 ```
 kubectl get svc -n monitoring
 ```
+<br />
 
 <p align=center><img src=".github/8_graf_ver_servicios.PNG"></p>
 <br />
@@ -883,12 +892,14 @@ kubectl get svc -n monitoring
 ```
 kubectl --namespace monitoring port-forward pod_grafana 3000
 ```
+<br />
 
 Ejemplo:
 
 ```
 kubectl --namespace monitoring port-forward grafana-5db65bcfd-kk77w 3000
 ```
+<br />
 
 <p align=center><img src=".github/9_graf_conexion.PNG"></p>
 <br />
