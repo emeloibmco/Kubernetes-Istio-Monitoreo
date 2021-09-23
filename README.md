@@ -823,6 +823,9 @@ Grafana es una herramienta que permite analizar y visualizar métricas. Cuando s
 git clone https://github.com/prometheus-operator/kube-prometheus.git
 ```
 
+<p align=center><img src=".github/1_graf_clonar_repo.PNG"></p>
+<br />
+
 3. Cambie de directorio a la carpeta clonada con el comando:
 ```
 cd kube-prometheus
@@ -833,30 +836,48 @@ cd kube-prometheus
 kubectl create -f manifests/setup
 ```
 
+<p align=center><img src=".github/2_graf_namespace.PNG"></p>
+<br />
+
 5. Verifique el estado del namespace creado con:
 ```
 kubectl get ns monitoring
 ```
+
+<p align=center><img src=".github/3_graf_verificar_estado_ns.PNG"></p>
+<br />
 
 6. Confirme que el pod del operador que ha instalado se esté ejcutando de forma correcta. Utilice el comando:
 ```
 kubectl get pods -n monitoring
 ```
 
+<p align=center><img src=".github/5_graf_pod_prometheus.PNG"></p>
+<br />
+
 7. Implemente la pila de monitoreo de Kubernetes. Para ello coloque:
 ```
 kubectl create -f manifests/
 ```
+
+<p align=center><img src=".github/6_graf_instalar_grafana.PNG"></p>
+<br />
 
 8. Espero unos minutos mientras se completa la implementación, identifique el pod de grafana y tenga en cuenta su nombre para usarla más adelante. Posteriormenete, visualice de nuevo los pods en el namespace creado con:
 ```
 kubectl get pods -n monitoring
 ```
 
+<p align=center><img src=".github/7_graf_ver_pods.PNG"></p>
+<br />
+
 9. Verifique que los servicios se han creado de forma exitosa. Coloque el comando:
 ```
 kubectl get svc -n monitoring
 ```
+
+<p align=center><img src=".github/8_graf_ver_servicios.PNG"></p>
+<br />
 
 10. Acceda al panel de Grafana reenviando la conexión del puerto del pod a un puerto local que no esté usando su máquina (ejemplo: ```3000```). Para ello, emplee el siguiente comando en el cual deberá colocar el nombre del pod de grafana:
 ```
@@ -869,14 +890,22 @@ Ejemplo:
 kubectl --namespace monitoring port-forward grafana-5db65bcfd-kk77w 3000
 ```
 
+<p align=center><img src=".github/9_graf_conexion.PNG"></p>
+<br />
+
 11. Una vez cargue la ventana de Grafana deberá colocar el usuario y contraseña para poder acceder al Dashboard. Para este casos coloque:
     * ```Email o username```: admin
     * ```Password```: admin
     
     Luego de colocar las credenciales y dar click en el botón ```Log in``` se le solicitará que cambie la contraseña. 
+    
+    <p align=center><img src=".github/10_graf_dashboard.PNG"></p>
+    <br />
 
-<br />
+12. Para finalizar explore los diferentes paneles en el dashboard y visualice las respectivas métricas.
 
+    <p align=center><img src=".github/11_graf_metricas.PNG"></p>
+    <br />
 
 ## Referencias :mag:
 
