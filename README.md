@@ -6,7 +6,7 @@ Esta demo es un acercamiento al concepto de Service Mesh en un Clúster de K8s p
 
 Se usará Istio para administrar configuraciones del Load Balancer, crear rutas entre servicios, realizar transiciones ágiles entre versiones de un servicio y visualizar el Service Mesh con Kiali.
 
-Por otro lado, se implementará el operador de Prometheus para instalar Grafana para producción y poder visualizar y monitorear métricas del clúster de Kubernetes.
+Por otro lado, se implementará el operador de Prometheus que permite instalar Grafana para producción con el fin de visualizar y monitorear métricas del clúster de Kubernetes.
 
 <br />
 
