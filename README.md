@@ -905,7 +905,7 @@ kubectl --namespace monitoring port-forward grafana-5db65bcfd-kk77w 3000
 <br />
 
 11. Una vez cargue la ventana de Grafana deberá colocar el usuario y contraseña para poder acceder al Dashboard. Para este casos coloque:
-    * ```Email o username```: admin
+    * ```Email or username```: admin
     * ```Password```: admin
     
     Luego de colocar las credenciales y dar click en el botón ```Log in``` se le solicitará que cambie la contraseña. 
