@@ -20,8 +20,9 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 8. [Captura de datos en Kiali](#Captura-de-datos-en-Kiali-clipboard)
 9. [Despliegue de servicio de base de datos MongoDB](#Despliegue-de-servicio-de-base-de-datos-MongoDB-books)
 10. [Definición de políticas de acceso a la base de datos](#Definición-de-políticas-de-acceso-a-la-base-de-datos-closed_lock_with_key)
-11. [Referencias](#Referencias-mag)
-12. [Autores](#Autores-black_nib)
+11. [Instalación de Grafana para producción](#Instalación-de-Grafana-para-producción-bar_chart)
+12. [Referencias](#Referencias-mag)
+13. [Autores](#Autores-black_nib)
 <br />
 
 ## Requisitos :newspaper:
@@ -808,6 +809,10 @@ Solicite nuevamente peticiones a la aplicación con el fin de recibir tráfico e
 Finalmente, Kiali mostrará tráfico entrante al servicio de mongodb.
 
 <p align=center><img src=".github/kiali-final.png"></p>
+<br />
+
+
+## Instalación de Grafana para producción :bar_chart:
 <br />
 
 
