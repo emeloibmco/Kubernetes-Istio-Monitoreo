@@ -14,15 +14,14 @@ Usaremos Istio para administrar configuraciones al Load Balancer, crear rutas en
 2. [Configuración de variables de entorno y acceso al clúster](#Configuración-de-variables-de-entorno-y-acceso-al-clúster-gear)
 3. [Instalación de Istio en el Clúster](#Instalación-de-Istio-en-el-Clúster-cloud)
 4. [Instalación de Kiali y Prometheus en el Clúster](#Instalación-de-Kiali-y-Prometheus-en-el-Clúster-chart_with_upwards_trend)
-5. [Instalación y prueba de Jaeger](#Instalación-y-prueba-de-Jaeger-tophat)
-6. [Despliegue de la aplicación](#Despliegue-de-la-aplicación-rocket)
-7. [Dashboard Kiali](#Dashboard-Kiali-computer)
-8. [Captura de datos en Kiali](#Captura-de-datos-en-Kiali-clipboard)
-9. [Despliegue de servicio de base de datos MongoDB](#Despliegue-de-servicio-de-base-de-datos-MongoDB-books)
-10. [Definición de políticas de acceso a la base de datos](#Definición-de-políticas-de-acceso-a-la-base-de-datos-closed_lock_with_key)
-11. [Instalación de Grafana para producción](#Instalación-de-Grafana-para-producción-bar_chart)
-12. [Referencias](#Referencias-mag)
-13. [Autores](#Autores-black_nib)
+5. [Despliegue de la aplicación](#Despliegue-de-la-aplicación-rocket)
+6. [Dashboard Kiali](#Dashboard-Kiali-computer)
+7. [Captura de datos en Kiali](#Captura-de-datos-en-Kiali-clipboard)
+8. [Despliegue de servicio de base de datos MongoDB](#Despliegue-de-servicio-de-base-de-datos-MongoDB-books)
+9. [Definición de políticas de acceso a la base de datos](#Definición-de-políticas-de-acceso-a-la-base-de-datos-closed_lock_with_key)
+10. [Instalación de Grafana para producción](#Instalación-de-Grafana-para-producción-bar_chart)
+11. [Referencias](#Referencias-mag)
+12. [Autores](#Autores-black_nib)
 <br />
 
 ## Requisitos :newspaper:
