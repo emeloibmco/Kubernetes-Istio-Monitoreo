@@ -843,7 +843,38 @@ kubectl get ns monitoring
 kubectl get pods -n monitoring
 ```
 
-7. 
+7. Implemente la pila de monitoreo de Kubernetes. Para ello coloque:
+```
+kubectl create -f manifests/
+```
+
+8. Espero unos minutos mientras se completa la implementación, identifique el pod de grafana y tenga en cuenta su nombre para usarla más adelante. Posteriormenete, visualice de nuevo los pods en el namespace creado con:
+```
+kubectl get pods -n monitoring
+```
+
+9. Verifique que los servicios se han creado de forma exitosa. Coloque el comando:
+```
+kubectl get svc -n monitoring
+```
+
+10. Acceda al panel de Grafana reenviando la conexión del puerto del pod a un puerto local que no esté usando su máquina (ejemplo: ```3000```). Para ello, emplee el siguiente comando en el cual deberá colocar el nombre del pod de grafana:
+```
+kubectl --namespace monitoring port-forward pod_grafana 3000
+```
+
+Ejemplo:
+
+```
+kubectl --namespace monitoring port-forward grafana-5db65bcfd-kk77w 3000
+```
+
+11. Una vez cargue la ventana de Grafana deberá colocar el usuario y contraseña para poder acceder al Dashboard. Para este casos coloque:
+    * ```Email o username```: admin
+    * ```Password```: admin
+    
+    Luego de colocar las credenciales y dar click en el botón ```Log in``` se le solicitará que cambie la contraseña. 
+
 <br />
 
 
