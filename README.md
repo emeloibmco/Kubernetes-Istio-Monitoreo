@@ -647,7 +647,7 @@ kubectl get svc -n monitoring
 <p align=center><img src=".github/8_graf_ver_servicios.PNG"></p>
 <br />
 
-10. Acceda al panel de Grafana reenviando la conexión del puerto del pod a un puerto local que no esté usando su máquina (ejemplo: ```3000```). Para ello, emplee el siguiente comando en el cual deberá colocar el nombre del pod de grafana:
+10. Acceda al panel de Grafana reenviando la conexión del puerto del pod a un puerto local que no esté usando su máquina (ejemplo: ```3000```). Para ello, utilice el siguiente comando en el cual deberá colocar el nombre del pod de grafana:
 ```
 kubectl --namespace monitoring port-forward pod_grafana 3000
 ```
