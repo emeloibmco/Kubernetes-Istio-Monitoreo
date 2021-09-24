@@ -629,7 +629,7 @@ kubectl create -f manifests/
 <p align=center><img src=".github/6_graf_instalar_grafana.PNG"></p>
 <br />
 
-8. Espero unos minutos mientras se completa la implementación, identifique el pod de grafana y tenga en cuenta su nombre para usarla más adelante. Posteriormenete, visualice de nuevo los pods en el namespace creado con:
+8. Espero unos minutos mientras se completa la implementación, identifique el pod de grafana y tenga en cuenta su nombre para usarlo más adelante. Posteriormenete, visualice de nuevo los pods en el namespace creado con:
 ```
 kubectl get pods -n monitoring
 ```
