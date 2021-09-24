@@ -572,7 +572,7 @@ Finalmente, Kiali mostrará tráfico entrante al servicio de mongodb.
 
 
 ## Instalación de Grafana para producción :bar_chart:
-Grafana es una herramienta que permite analizar y visualizar métricas. Cuando se trata de monitorear un clúster en producción, el trabajar Prometheus y Grafana en conjunto se convierte en una excelente solución. Para este caso, se emplea el ```prometheus-operator```, diseñado para facilitar la implementación y gestión de Prometheus. Al instalar el operador como se inidica en este repositorio también instalará Grafana. Complete los siguientes pasos:
+Grafana es una herramienta que permite analizar y visualizar métricas. Cuando se trata de monitorear un clúster en producción, el trabajar Prometheus y Grafana en conjunto se convierte en una excelente solución. Para este caso, se emplea el ```prometheus-operator```, diseñado para facilitar la implementación y gestión de Prometheus. Al instalar el operador como se indica en este repositorio también instalará Grafana. Complete los siguientes pasos:
 <br />
 
 1. Asegúrese de iniciar sesión, configurar la región y grupo de recursos y seleccionar el clúster de Kubernetes en el que desea instalar Grafana. Para esto, recuerde seguir los pasos de *acceso al clúster* en el ítem 2 que se indica en el paso [Configuración de variables de entorno y acceso al clúster](#Configuración-de-variables-de-entorno-y-acceso-al-clúster-gear)
