@@ -272,7 +272,7 @@ Complete los siguientes pasos para configurar Prometheus a escala de producción
    Ahora verifique que sea posible acceder mediante el comando:
 
    ```
-   curl -o /dev/null -s -w "%{http_code}\n" http://169.63.6.234/productpage
+   curl -o /dev/null -s -w "%{http_code}\n" http://<dirección_IP>/productpage
    ```
 
    La salida debe ser 200.
@@ -280,7 +280,7 @@ Complete los siguientes pasos para configurar Prometheus a escala de producción
    <p align=center><img src=".github/istioctl-status.png">
    <br />
 
-   También puede realizar la prueba por el navegador accediendo a la dirección `http://169.64.6.235/productpage`
+   También puede realizar la prueba por el navegador accediendo a la dirección `http://<dirección_IP>/productpage`
 
    <p align=center><img src=".github/istioctl-web.png"></p>
    <br />
@@ -390,7 +390,7 @@ Para generar una cantidad considerable de solicitudes y así poder visualizar el
 $i = 1
 do
 {
-   $Response = Invoke-WebRequest -URI http://169.63.6.234/productpage
+   $Response = Invoke-WebRequest -URI http://<dirección_IP>/productpage
    $Response.StatusCode
    $i++
 }
@@ -415,7 +415,7 @@ while ($i -le 10)
 
 ```bash
 for ((i = 0; i < 10; i++)); do
-    curl -o /dev/null -s -w "%{http_code}\n" http://169.63.6.234/productpage
+    curl -o /dev/null -s -w "%{http_code}\n" http://<dirección_IP>/productpage
 done
 ```
 
