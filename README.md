@@ -151,7 +151,7 @@ Para este caso, la versión empleada de Kiali es la ```1.42.0```. Por otro lado,
 
 2. Instale el ```kiali-operator``` en el namespace que acaba de crear (```kiali-operator```) junto con el servidor de Kiali en el namespace del sistema istio (```istio-system```). Asegúrese de tener instalado el comando helm (puede que deba cambiar de carpeta hasta la ubicación que contiene el ejecutable) y posteriomente coloque el comando:
    ```
-   helm install --set cr.create=true --set cr.namespace=istio-system --namespace kiali-operator --repo https://kiali.org/helm-charts --version 1.37.0 kiali-operator kiali-operator 
+   helm install --set cr.create=true --set cr.namespace=istio-system --namespace kiali-operator --repo https://kiali.org/helm-charts --version 1.42.0 kiali-operator kiali-operator 
    ```
    <br />
 
