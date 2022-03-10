@@ -178,12 +178,17 @@ Complete los siguientes pasos para configurar Prometheus a escala de producción
    <p align=center><img width="950" src=".github/prometheus-production.PNG"></p>
    <br />
    
-   > NOTA: En caso de que el enlace falle al momento de realizar la instalación, en el respositorio puede encontrar el archivo ```prometheus.yaml```que contiene las configuraciones de federación jerárquica y reglas para ambientes a escala de producción. Por lo tanto, puede utilizar ese archivo para desplegar Prometheus a escala de producción. 
+   > NOTA: En caso de que el enlace falle al momento de realizar la instalación, en el repositorio puede encontrar el archivo ```prometheus.yaml```que contiene las configuraciones de federación jerárquica y reglas para ambientes a escala de producción. Por lo tanto, puede utilizar ese archivo para desplegar Prometheus a escala de producción. 
 
 2. Verifique que Prometheus se ha instalado en el namespace ```istio-system```. 
 
    <p align=center><img width="800" src=".github/prometheus-istio-system.PNG"></p>
 <br />
+
+Si Prometheus no se encuentra instalado puede ejecutar el siguiente comando desde la carpeta ```Kubernetes-Istio-Monitoreo\istio-1.12.4```:
+   ```
+   kubectl apply -f samples/addons
+   ```
 
 
 ## Despliegue de la aplicación :rocket:
@@ -560,10 +565,15 @@ kubectl get svc -n monitoring
 
 <p align=center><img src=".github/8_graf_ver_servicios.PNG"></p>
 <br />
+   
+En caso de no tener un pod de grafana, use el siguiente comando para desplegarlo:
+```
+kubectl apply -f https://raw.githubusercontent.com/istio/istio/release-1.13/samples/addons/grafana.yaml
+```
 
 10. Acceda al panel de Grafana reenviando la conexión del puerto del pod a un puerto local que no esté usando su máquina (ejemplo: ```3000```). Para ello, utilice el siguiente comando en el cual deberá colocar el nombre del pod de grafana:
 ```
-kubectl --namespace monitoring port-forward pod_grafana 3000
+kubectl --namespace monitoring port-forward <POD_GRAFANA> 3000
 ```
 <br />
 
