@@ -407,7 +407,7 @@ while ($i -le 10)
 $i = 1
 do
 {
-   $Response = Invoke-WebRequest -URI http://3401ba17-us-south.lb.appdomain.cloud/productpage
+   $Response = Invoke-WebRequest -URI http://<ENDPOINT>/productpage
    $Response.StatusCode
    $i++
 }
