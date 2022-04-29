@@ -427,7 +427,7 @@ done
 * Clúster en VPC:
 ```bash
 for ((i = 0; i < 10; i++)); do
-    curl -o /dev/null -s -w "%{http_code}\n" http://3401ba17-us-south.lb.appdomain.cloud/productpage
+    curl -o /dev/null -s -w "%{http_code}\n" http://<ENDPOINT>/productpage
 done
 ```
 <br />
